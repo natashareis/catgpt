@@ -1,77 +1,63 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
-import morganaImage from './Morgana.jpg'; // Import the image
+import Chat from './Chat';
+import About from './About';
 
 function App() {
-  const [message, setMessage] = useState('');
-  const [chatHistory, setChatHistory] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
-  const sendMessage = async (e) => {
-    e.preventDefault();
-    if (!message.trim()) return;
-
-    const userMessage = { role: 'user', text: message };
-    setChatHistory(prev => [...prev, userMessage]);
-    setIsLoading(true);
-    setMessage('');
-
-    try {
-      // API call to the Flask backend
-      const response = await axios.post('http://localhost:5000/chat', {
-        message: message,
-      });
-
-      const botMessage = { role: 'bot', text: response.data.reply };
-      setChatHistory(prev => [...prev, botMessage]);
-
-    } catch (error) {
-      console.error('Error sending message:', error);
-      const errorMessage = { 
-        role: 'bot', 
-        text: 'Sorry, something went wrong. Please check the console and make sure the server is running.' 
-      };
-      setChatHistory(prev => [...prev, errorMessage]);
-    } finally {
-      setIsLoading(false);
+  useEffect(() => {
+    // Detect system preference on mount
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const savedTheme = localStorage.getItem('theme-mode');
+    
+    if (savedTheme) {
+      setIsDarkMode(savedTheme === 'dark');
+    } else {
+      setIsDarkMode(prefersDark);
     }
+  }, []);
+
+  useEffect(() => {
+    // Apply theme to document and save preference
+    const htmlElement = document.documentElement;
+    if (isDarkMode) {
+      htmlElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme-mode', 'dark');
+    } else {
+      htmlElement.setAttribute('data-theme', 'light');
+      localStorage.setItem('theme-mode', 'light');
+    }
+  }, [isDarkMode]);
+
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
   };
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={morganaImage} className="morgana-image" alt="Morgana the cat" />
-        <h1>CatGPT</h1>
-        <p>Your affectionate and wise feline companion</p>
-      </header>
-      <div className="chat-window">
-        <div className="chat-history">
-          {chatHistory.map((msg, index) => (
-            <div key={index} className={`message ${msg.role}`}>
-              <p>{msg.text}</p>
-            </div>
-          ))}
-          {isLoading && (
-            <div className="message bot">
-              <p><i>purring...</i></p>
-            </div>
-          )}
-        </div>
-        <form className="chat-input" onSubmit={sendMessage}>
-          <input
-            type="text"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            placeholder="Ask the cat a question..."
-            disabled={isLoading}
-          />
-          <button type="submit" disabled={isLoading}>
-            {isLoading ? 'Sending...' : 'Send'}
-          </button>
-        </form>
+    <Router>
+      <div className="App">
+        <nav className="navbar">
+          <div className="nav-left">
+            <Link to="/" className="nav-link">CatGPT</Link>
+            <Link to="/about" className="nav-link">About The Developer</Link>
+          </div>
+          <div className="nav-right">
+            <button className="theme-toggle" onClick={toggleTheme} title="Toggle dark/light mode">
+              {isDarkMode ? '☀️' : '🌙'}
+            </button>
+          </div>
+        </nav>
+        <Routes>
+          <Route path="/" element={<Chat />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+        <footer className="app-footer">
+          <p>CatGPT v1.0</p>
+        </footer>
       </div>
-    </div>
+    </Router>
   );
 }
 
