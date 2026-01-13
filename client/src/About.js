@@ -20,6 +20,7 @@ function About() {
           <h2>About Me</h2>
           <div className="about-bio-group">
             <p className="about-bio">
+              <strong>Experience:</strong> 17 years in QA | 4 years as Full Stack Developer<br />
               <strong>Polyglot</strong> in Portuguese, English, Spanish, and French<br />
               <strong>Location:</strong> Greater Montreal Area
             </p>
