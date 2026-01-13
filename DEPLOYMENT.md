@@ -52,14 +52,13 @@ This guide explains how to deploy CatGPT with secure secret management to preven
    - **Name:** catgpt-backend
    - **Runtime:** Python 3
    - **Build Command:** `pip install -r server/requirements.txt`
-   - **Start Command:** `cd server && python app.py`
-   - **Root Directory:** `/`
+   - **Start Command:** `gunicorn server.app:app --bind 0.0.0.0:$PORT` (or Render will auto-detect from Procfile)
+   - **Root Directory:** `/` (or leave blank)
 6. In "Environment" tab, add secrets:
    ```
    GOOGLE_API_KEY=your_actual_gemini_key_here
    FLASK_ENV=production
    FLASK_DEBUG=False
-   PORT=5000
    ```
 7. Deploy!
 

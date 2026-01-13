@@ -1,5 +1,5 @@
 import os
-import google.generativeai as genai
+import google.genai as genai
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from dotenv import load_dotenv
@@ -54,7 +54,7 @@ def chat():
 
     try:
         model = genai.GenerativeModel('models/gemini-2.5-flash')
-        full_prompt = f"{CAT_PERSONA_PROMPT}\n\nUser: {user_message}\nJasper:"
+        full_prompt = f"{CAT_PERSONA_PROMPT}\n\nUser: {user_message}\nMorgana:"
         response = model.generate_content(full_prompt)
         return jsonify({"reply": response.text})
 
@@ -64,4 +64,6 @@ def chat():
         return jsonify({"error": "An error occurred while processing your request."}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    port = int(os.getenv("PORT", 5000))
+    debug = os.getenv("FLASK_DEBUG", "False").lower() == "true"
+    app.run(host="0.0.0.0", port=port, debug=debug)
