@@ -17,6 +17,14 @@ google_api_key = os.getenv("GOOGLE_API_KEY")
 if google_api_key:
     genai.configure(api_key=google_api_key)
 
+# --- Health Check Route ---
+@app.route('/', methods=['GET'])
+def health_check():
+    if google_api_key:
+        return jsonify({"status": "ok", "message": "CatGPT backend is running"}), 200
+    else:
+        return jsonify({"status": "error", "message": "GOOGLE_API_KEY not configured"}), 500
+
 # --- Cat Persona ---
 CAT_PERSONA_PROMPT = """
 You are a female cat named Morgana. You are an older cat, not very patient, but affectionate with your human. You are wise about cat things. You love to nap, sunbathe, and you enjoy treats, lap time, pets, and cuddles.
