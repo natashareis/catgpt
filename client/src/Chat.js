@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import morganaImage from './Morgana.jpg';
 
+// Chat component - handles communication with Morgana backend
 function Chat() {
   const [message, setMessage] = useState('');
   const [chatHistory, setChatHistory] = useState([]);
