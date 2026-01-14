@@ -20,13 +20,13 @@ function About() {
           <h2>Who I Am</h2>
           <div className="about-bio-group">
             <p className="about-passion">
-              I'm a builder at heart—someone who loves creating things that matter. Whether it's crafting robust automation frameworks, designing full-stack applications, or experimenting with LLMs and AI, I'm driven by the challenge of solving complex problems with elegant solutions.
+              I'm a builder at heart. I love creating things that matter, whether it's crafting robust automation frameworks, designing full-stack applications, or experimenting with LLMs and AI. I'm driven by the challenge of solving complex problems with elegant solutions.
             </p>
             <p className="about-bio">
               Fluent in Portuguese, English, Spanish, and French. Based in the Greater Montreal Area and passionate about merging technical expertise with creative storytelling.
             </p>
             <p className="about-personal">
-              When I'm not coding, you'll find me with a warm cup of coffee and a physical book in hand. I'm a writer and cosplayer who believes that imagination fuels innovation. I have a deep love for all things fluffy and cozy—hence why Morgana exists! 🐱
+              When I'm not coding, you'll find me with a warm cup of coffee and a physical book in hand. I'm a writer and cosplayer who believes imagination fuels innovation. I have a deep love for all things fluffy and cozy, hence why Morgana exists! 🐱
             </p>
           </div>
         </section>
@@ -56,7 +56,7 @@ function About() {
               With nearly two decades of experience in quality assurance and several years exploring full-stack development, I've had the privilege of working across diverse technical landscapes. From building enterprise testing frameworks to creating modern web applications, I've learned that the best technology is the kind that empowers people.
             </p>
             <p className="about-bio">
-              More recently, I've been fascinated by the intersection of AI and practical product building—exploring how LLMs can enhance our tools and create more delightful user experiences. Morgana is one such experiment: a chatbot with personality.
+              More recently, I've been fascinated by the intersection of AI and practical product building, exploring how LLMs can enhance our tools and create better user experiences. Morgana is one such experiment: a chatbot with personality.
             </p>
           </div>
         </section>
