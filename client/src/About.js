@@ -36,15 +36,15 @@ function About() {
           <div className="tech-stack">
             <span className="tech-badge">Testing Frameworks</span>
             <span className="tech-badge">Automation Scripts</span>
-            <span className="tech-badge">Full-Stack Apps</span>
-            <span className="tech-badge">AI Integrations</span>
-            <span className="tech-badge">Python</span>
-            <span className="tech-badge">React</span>
-            <span className="tech-badge">TypeScript</span>
-            <span className="tech-badge">SQL & NoSQL</span>
-            <span className="tech-badge">Cloud & CI/CD</span>
             <span className="tech-badge">Web Automation</span>
             <span className="tech-badge">API Testing</span>
+            <span className="tech-badge">Full-Stack Apps</span>
+            <span className="tech-badge">Python</span>
+            <span className="tech-badge">React</span>
+            <span className="tech-badge">Angular</span>
+            <span className="tech-badge">SQL & NoSQL</span>
+            <span className="tech-badge">Cloud & CI/CD</span>
+            <span className="tech-badge">AI Integrations</span>
             <span className="tech-badge">LLM Applications</span>
           </div>
         </section>
