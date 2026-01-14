@@ -17,61 +17,47 @@ function About() {
 
       <div className="about-content">
         <section className="about-section">
-          <h2>About Me</h2>
+          <h2>Who I Am</h2>
           <div className="about-bio-group">
-            <p className="about-bio">
-              <strong>Experience:</strong> 17 years in QA | 4 years as Full Stack Developer<br />
-              <strong>Polyglot</strong> in Portuguese, English, Spanish, and French<br />
-              <strong>Location:</strong> Greater Montreal Area
-            </p>
             <p className="about-passion">
-              A highly specialized SDET and QA Lead with a passion for building robust testing frameworks and empowering teams through automation. I leverage the power of LLMs and modern tech to create fun, useful, and impactful products.
+              I'm a builder at heart—someone who loves creating things that matter. Whether it's crafting robust automation frameworks, designing full-stack applications, or experimenting with LLMs and AI, I'm driven by the challenge of solving complex problems with elegant solutions.
+            </p>
+            <p className="about-bio">
+              Fluent in Portuguese, English, Spanish, and French. Based in the Greater Montreal Area and passionate about merging technical expertise with creative storytelling.
             </p>
             <p className="about-personal">
-              In my free time, you'll find me enjoying warm coffee and cozying up with a good physical book. I'm a creative at heart—a writer and cosplayer who brings imagination into everything I do. Owner of a whimsical mind that loves all things fluffy.
+              When I'm not coding, you'll find me with a warm cup of coffee and a physical book in hand. I'm a writer and cosplayer who believes that imagination fuels innovation. I have a deep love for all things fluffy and cozy—hence why Morgana exists! 🐱
             </p>
           </div>
         </section>
 
         <section className="about-section">
-          <h2>Tech Stack</h2>
+          <h2>What I Build</h2>
           <div className="tech-stack">
-            <span className="tech-badge">Manual Testing</span>
-            <span className="tech-badge">Automated Testing</span>
+            <span className="tech-badge">Testing Frameworks</span>
+            <span className="tech-badge">Automation Scripts</span>
+            <span className="tech-badge">Full-Stack Apps</span>
+            <span className="tech-badge">AI Integrations</span>
             <span className="tech-badge">Python</span>
-            <span className="tech-badge">Selenium WebDriver</span>
-            <span className="tech-badge">Postman</span>
-            <span className="tech-badge">SQL</span>
             <span className="tech-badge">React</span>
-            <span className="tech-badge">Angular</span>
             <span className="tech-badge">TypeScript</span>
-            <span className="tech-badge">Full Stack Development</span>
-            <span className="tech-badge">Jenkins</span>
-            <span className="tech-badge">MongoDB</span>
+            <span className="tech-badge">SQL & NoSQL</span>
+            <span className="tech-badge">Cloud & CI/CD</span>
+            <span className="tech-badge">Web Automation</span>
+            <span className="tech-badge">API Testing</span>
+            <span className="tech-badge">LLM Applications</span>
           </div>
         </section>
 
         <section className="about-section">
-          <h2>Education</h2>
-          <div className="education-item">
-            <p className="education-title">Extension in Big Data and Artificial Intelligence</p>
-            <p className="education-school">FATEC Ipiranga — 2018</p>
-          </div>
-          <div className="education-item">
-            <p className="education-title">Technologist Degree in Systems Analysis and Development</p>
-            <p className="education-school">FATEC Ipiranga — 2017</p>
-          </div>
-        </section>
-
-        <section className="about-section">
-          <h2>Certifications</h2>
-          <div className="certification-item">
-            <p className="certification-title">Agile Scrum Foundation</p>
-            <p className="certification-details">EXIN — 2018</p>
-          </div>
-          <div className="certification-item">
-            <p className="certification-title">CTFL - Certified Tester Foundation Level</p>
-            <p className="certification-details">BSTQB - ISTQB — 2016</p>
+          <h2>My Journey</h2>
+          <div className="about-bio-group">
+            <p className="about-bio">
+              With nearly two decades of experience in quality assurance and several years exploring full-stack development, I've had the privilege of working across diverse technical landscapes. From building enterprise testing frameworks to creating modern web applications, I've learned that the best technology is the kind that empowers people.
+            </p>
+            <p className="about-bio">
+              More recently, I've been fascinated by the intersection of AI and practical product building—exploring how LLMs can enhance our tools and create more delightful user experiences. Morgana is one such experiment: a chatbot with personality.
+            </p>
           </div>
         </section>
 
