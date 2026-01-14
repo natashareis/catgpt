@@ -48,6 +48,7 @@ function Chat() {
         <div className="chat-title-section">
           <h1>CatGPT</h1>
           <p>Your affectionate and wise feline companion</p>
+          <p className="chat-disclaimer">Powered by Google Gemini v2.5-flash | CatGPT v1.0</p>
         </div>
       </header>
       <div className="chat-window">
@@ -68,7 +69,7 @@ function Chat() {
             type="text"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            placeholder="Ask the cat a question..."
+            placeholder="Ask Morgana a question..."
             disabled={isLoading}
           />
           <button type="submit" disabled={isLoading}>

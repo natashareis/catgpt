@@ -208,6 +208,14 @@ body {
   margin: 0;
 }
 
+.chat-disclaimer {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-top: 12px;
+  opacity: 0.9;
+  font-weight: 500;
+}
+
 /* ============================================
    Chat Window
    ============================================ */
