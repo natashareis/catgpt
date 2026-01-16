@@ -4,6 +4,7 @@ import './About.css';
 
 function About() {
   const { t } = useTranslation();
+  const techStack = Array.isArray(t('about.techStack')) ? t('about.techStack') : [];
 
   return (
     <div className="About">
@@ -36,7 +37,7 @@ function About() {
         <section className="about-section">
           <h2>{t('about.whatIBuild')}</h2>
           <div className="tech-stack">
-            {Array.isArray(t('about.techStack')) && t('about.techStack').map((tech, index) => (
+            {techStack.map((tech, index) => (
               <span key={index} className="tech-badge">{tech}</span>
             ))}
           </div>
