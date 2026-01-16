@@ -36,7 +36,7 @@ function About() {
         <section className="about-section">
           <h2>{t('about.whatIBuild')}</h2>
           <div className="tech-stack">
-            {t('about.techStack').map((tech, index) => (
+            {Array.isArray(t('about.techStack')) && t('about.techStack').map((tech, index) => (
               <span key={index} className="tech-badge">{tech}</span>
             ))}
           </div>
