@@ -4,7 +4,27 @@ import './About.css';
 
 function About() {
   const { t } = useTranslation();
-  const techStack = Array.isArray(t('about.techStack')) ? t('about.techStack') : [];
+  
+  // Fallback tech stack in case translation doesn't load properly
+  const fallbackTechStack = [
+    "Testing Frameworks",
+    "Automation Scripts",
+    "Web Automation",
+    "API Testing",
+    "Full-Stack Apps",
+    "Python",
+    "React",
+    "Angular",
+    "SQL & NoSQL",
+    "Cloud & CI/CD",
+    "AI Integrations",
+    "LLM Applications"
+  ];
+  
+  const techStackData = t('about.techStack', { returnObjects: true });
+  const techStack = (Array.isArray(techStackData) && techStackData.length > 0) 
+    ? techStackData 
+    : fallbackTechStack;
 
   return (
     <div className="About">
