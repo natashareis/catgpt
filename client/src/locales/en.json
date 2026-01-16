@@ -1,12 +1,12 @@
 {
   "nav": {
-    "brand": "CatGPT",
+    "brand": "CatsGPT",
     "about": "About The Developer"
   },
   "chat": {
-    "title": "CatGPT",
+    "title": "CatsGPT",
     "subtitle": "Your affectionate and wise feline companion",
-    "disclaimer": "Powered by Google Gemini v2.5-flash | CatGPT v1.0",
+    "disclaimer": "Powered by Google Gemini v2.5-flash | CatsGPT v1.0",
     "placeholder": "Type your message...",
     "send": "Send",
     "error": "Sorry, something went wrong. Please check the console and make sure the server is running."
@@ -35,7 +35,7 @@
     ]
   },
   "footer": {
-    "version": "CatGPT v1.0",
+    "version": "CatsGPT v1.0",
     "contact": "Contact Us"
   },
   "contactModal": {

@@ -38,7 +38,7 @@ if google_api_key:
 @app.route('/', methods=['GET'])
 def health_check():
     if google_api_key:
-        return jsonify({"status": "ok", "message": "CatGPT backend is running"}), 200
+        return jsonify({"status": "ok", "message": "CatsGPT backend is running"}), 200
     else:
         return jsonify({"status": "error", "message": "GOOGLE_API_KEY not configured"}), 500
 
@@ -112,7 +112,7 @@ def contact():
         if mail_username:
             # Ensure all strings are properly handled as UTF-8
             subject = f"New Contact Form Submission from {name}"
-            body = f"New message from CatGPT contact form:\n\nName: {name}\nEmail: {email}\n\nMessage:\n{message}"
+            body = f"New message from CatsGPT contact form:\n\nName: {name}\nEmail: {email}\n\nMessage:\n{message}"
             
             msg = Message(
                 subject=subject,
