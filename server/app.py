@@ -2,6 +2,7 @@ import os
 import google.generativeai as genai
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+from flask_mail import Mail, Message
 from dotenv import load_dotenv
 
 # Load environment variables from .env file
@@ -9,7 +10,23 @@ load_dotenv()
 
 # Initialize Flask app
 app = Flask(__name__)
+app.config['JSON_AS_ASCII'] = False
 CORS(app)  # Enable CORS for all routes
+
+# --- Email Configuration ---
+app.config['MAIL_SERVER'] = os.getenv('MAIL_SERVER', 'smtp.gmail.com')
+app.config['MAIL_PORT'] = int(os.getenv('MAIL_PORT', 587))
+app.config['MAIL_USE_TLS'] = os.getenv('MAIL_USE_TLS', 'True').lower() == 'true'
+app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME')
+app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD')
+app.config['MAIL_DEFAULT_SENDER'] = os.getenv('MAIL_USERNAME')
+app.config['MAIL_ASCII_ATTACHMENTS'] = True
+mail = Mail(app)
+
+# Fix for SMTP encoding issues with non-ASCII hostnames
+import socket
+original_getfqdn = socket.getfqdn
+socket.getfqdn = lambda name='': 'localhost'
 
 # --- API Key Configuration ---
 # Configure Google Gemini
@@ -70,6 +87,49 @@ def chat():
         # Generic error handler
         print(f"An error occurred: {e}")
         return jsonify({"error": "An error occurred while processing your request."}), 500
+
+# --- Contact Form Route ---
+@app.route('/contact', methods=['POST'])
+def contact():
+    """Handle contact form submissions"""
+    data = request.get_json()
+    
+    # Validate input
+    name = data.get('name', '').strip()
+    email = data.get('email', '').strip()
+    message = data.get('message', '').strip()
+    
+    if not name or not email or not message:
+        return jsonify({"error": "Missing required fields"}), 400
+    
+    # Validate email format
+    if '@' not in email or '.' not in email:
+        return jsonify({"error": "Invalid email format"}), 400
+    
+    try:
+        # Send email if credentials are configured
+        mail_username = os.getenv('MAIL_USERNAME')
+        if mail_username:
+            # Ensure all strings are properly handled as UTF-8
+            subject = f"New Contact Form Submission from {name}"
+            body = f"New message from CatGPT contact form:\n\nName: {name}\nEmail: {email}\n\nMessage:\n{message}"
+            
+            msg = Message(
+                subject=subject,
+                recipients=[mail_username],
+                body=body,
+                reply_to=email
+            )
+            mail.send(msg)
+        else:
+            # If email not configured, just log it
+            print(f"Contact form submission - Name: {name}, Email: {email}, Message: {message}")
+        
+        return jsonify({"success": True, "message": "Thank you for your message!"}), 200
+    
+    except Exception as e:
+        print(f"Error sending contact email: {e}")
+        return jsonify({"error": "Failed to send message"}), 500
 
 if __name__ == '__main__':
     port = int(os.getenv("PORT", 5000))

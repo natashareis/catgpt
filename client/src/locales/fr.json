@@ -1,0 +1,65 @@
+{
+  "nav": {
+    "brand": "CatGPT",
+    "about": "À Propos du Développeur"
+  },
+  "chat": {
+    "title": "CatGPT",
+    "subtitle": "Votre compagne féline affectueuse et sage",
+    "disclaimer": "Alimenté par Google Gemini v2.5-flash | CatGPT v1.0",
+    "placeholder": "Tapez votre message...",
+    "send": "Envoyer",
+    "error": "Désolé, quelque chose s'est mal passé. Veuillez vérifier la console et assurez-vous que le serveur est en cours d'exécution."
+  },
+  "about": {
+    "name": "Natasha dos Reis",
+    "tagline": "SDET hautement spécialisée, utilisant la puissance des LLM pour croître et créer des produits amusants et utiles.",
+    "whoIAm": "Qui suis-je",
+    "passion": "Je suis une bâtisseuse de cœur. J'aime créer des choses qui comptent, qu'il s'agisse de concevoir des cadres d'automatisation robustes, de concevoir des applications full-stack ou d'expérimenter avec les LLM et l'IA. Je suis motivée par le défi de résoudre des problèmes complexes avec des solutions élégantes.",
+    "bio": "Parlant couramment le portugais, l'anglais, l'espagnol et le français. Basée dans la région métropolitaine de Montréal et passionnée par la fusion de l'expertise technique avec la narration créative.",
+    "personal": "Quand je ne code pas, vous me trouverez avec une tasse de café chaud et un livre physique à la main. Je suis une écrivaine et cosplayeuse qui croit que l'imagination alimente l'innovation. J'ai un amour profond pour tout ce qui est doux et confortable, d'où l'existence de Morgana ! 🐱",
+    "whatIBuild": "Ce que je Construis",
+    "techStack": [
+      "Cadres de Test",
+      "Scripts d'Automatisation",
+      "Automatisation Web",
+      "Tests API",
+      "Applications Full-Stack",
+      "Python",
+      "React",
+      "Angular",
+      "SQL & NoSQL",
+      "Cloud & CI/CD",
+      "Intégrations IA",
+      "Applications LLM"
+    ]
+  },
+  "footer": {
+    "version": "CatGPT v1.0",
+    "contact": "Nous Contacter"
+  },
+  "contactModal": {
+    "title": "Entrez en Contact",
+    "emailTo": "Envoi de votre message à:",
+    "description": "Vous avez une question ou un commentaire? Nous aimerions avoir de vos nouvelles!",
+    "name": "Nom",
+    "namePlaceholder": "Votre nom",
+    "email": "Email",
+    "emailPlaceholder": "votre@email.com",
+    "message": "Message",
+    "messagePlaceholder": "Votre message ici...",
+    "send": "Envoyer le Message",
+    "cancel": "Fermer",
+    "sending": "Envoi...",
+    "successTitle": "Message Envoyé!",
+    "successMessage": "Merci de nous avoir contactés. Nous vous répondrons bientôt!",
+    "errorTitle": "Oups!",
+    "errorMessage": "Quelque chose s'est mal passé. Veuillez réessayer.",
+    "validation": {
+      "nameRequired": "Le nom est requis",
+      "emailRequired": "L'email est requis",
+      "emailInvalid": "Veuillez entrer une adresse email valide",
+      "messageRequired": "Le message est requis"
+    }
+  }
+}
