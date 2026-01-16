@@ -1,7 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import './About.css';
-import natashPhoto from './natasha.jpg';
 
 function About() {
   const { t } = useTranslation();
@@ -9,7 +8,7 @@ function About() {
   return (
     <div className="About">
       <div className="about-hero">
-        <img src={natashPhoto} className="about-photo" alt="Natasha dos Reis" />
+        <img src="/natasha.jpg" className="about-photo" alt="Natasha dos Reis" />
         <div className="about-title-section">
           <h1>{t('about.name')}</h1>
           <p className="about-tagline">
