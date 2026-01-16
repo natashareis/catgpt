@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import './App.css';
 import Chat from './Chat';
 import About from './About';
+import LanguageToggle from './components/LanguageToggle';
+import ContactModal from './components/ContactModal';
 
 function App() {
+  const { t } = useTranslation();
   const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
   useEffect(() => {
     // Detect system preference on mount
@@ -40,8 +45,8 @@ function App() {
       <div className="App">
         <nav className="navbar">
           <div className="nav-left">
-            <Link to="/" className="nav-link">CatGPT</Link>
-            <Link to="/about" className="nav-link">About The Developer</Link>
+            <Link to="/" className="nav-link">{t('nav.brand')}</Link>
+            <Link to="/about" className="nav-link">{t('nav.about')}</Link>
           </div>
           <div className="nav-right">
             <button className="theme-toggle" onClick={toggleTheme} title="Toggle dark/light mode">
@@ -54,8 +59,15 @@ function App() {
           <Route path="/about" element={<About />} />
         </Routes>
         <footer className="app-footer">
-          <p>CatGPT v1.0</p>
+          <div className="footer-content">
+            <p>{t('footer.version')}</p>
+            <button className="contact-button" onClick={() => setIsContactModalOpen(true)}>
+              {t('footer.contact')}
+            </button>
+          </div>
         </footer>
+        <ContactModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} />
+        <LanguageToggle />
       </div>
     </Router>
   );

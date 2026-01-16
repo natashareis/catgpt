@@ -1,6 +1,6 @@
-# CatGPT 😺
+# CatsGPT 😺
 
-Welcome to CatGPT, an interactive web application where you can chat with an AI-powered cat persona named Morgana.
+Welcome to CatsGPT, an interactive web application where you can chat with an AI-powered cat persona named Morgana.
 
 This project was built to simulate a conversation with a wise, affectionate, and slightly mischievous cat who will only respond to cat-related topics. The application is powered by the Google Gemini API.
 

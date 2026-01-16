@@ -1,0 +1,36 @@
+.language-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--accent-purple);
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  white-space: nowrap;
+}
+
+.language-toggle:hover {
+  background-color: var(--accent-pink);
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.language-toggle:active {
+  transform: scale(0.98);
+}
+
+@media (max-width: 768px) {
+  .language-toggle {
+    bottom: 15px;
+    right: 15px;
+    padding: 8px 12px;
+    font-size: 0.75rem;
+  }
+}

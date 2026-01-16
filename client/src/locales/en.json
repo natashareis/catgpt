@@ -1,0 +1,65 @@
+{
+  "nav": {
+    "brand": "CatsGPT",
+    "about": "About The Developer"
+  },
+  "chat": {
+    "title": "CatsGPT",
+    "subtitle": "Your affectionate and wise feline companion",
+    "disclaimer": "Powered by Google Gemini v2.5-flash | CatsGPT v1.0",
+    "placeholder": "Type your message...",
+    "send": "Send",
+    "error": "Sorry, something went wrong. Please check the console and make sure the server is running."
+  },
+  "about": {
+    "name": "Natasha dos Reis",
+    "tagline": "Highly specialized SDET, leveraging the power of LLMs to grow and empower fun and useful product building.",
+    "whoIAm": "Who I Am",
+    "passion": "I'm a builder at heart. I love creating things that matter, whether it's crafting robust automation frameworks, designing full-stack applications, or experimenting with LLMs and AI. I'm driven by the challenge of solving complex problems with elegant solutions.",
+    "bio": "Fluent in Portuguese, English, Spanish, and French. Based in the Greater Montreal Area and passionate about merging technical expertise with creative storytelling.",
+    "personal": "When I'm not coding, you'll find me with a warm cup of coffee and a physical book in hand. I'm a writer and cosplayer who believes imagination fuels innovation. I have a deep love for all things fluffy and cozy, hence why Morgana exists! 🐱",
+    "whatIBuild": "What I Build",
+    "techStack": [
+      "Testing Frameworks",
+      "Automation Scripts",
+      "Web Automation",
+      "API Testing",
+      "Full-Stack Apps",
+      "Python",
+      "React",
+      "Angular",
+      "SQL & NoSQL",
+      "Cloud & CI/CD",
+      "AI Integrations",
+      "LLM Applications"
+    ]
+  },
+  "footer": {
+    "version": "CatsGPT v1.0",
+    "contact": "Contact Us"
+  },
+  "contactModal": {
+    "title": "Get in Touch",
+    "emailTo": "Sending your message to:",
+    "description": "Have a question or feedback? We'd love to hear from you!",
+    "name": "Name",
+    "namePlaceholder": "Your name",
+    "email": "Email",
+    "emailPlaceholder": "your@email.com",
+    "message": "Message",
+    "messagePlaceholder": "Your message here...",
+    "send": "Send Message",
+    "cancel": "Close",
+    "sending": "Sending...",
+    "successTitle": "Message Sent!",
+    "successMessage": "Thank you for reaching out. We'll get back to you soon!",
+    "errorTitle": "Oops!",
+    "errorMessage": "Something went wrong. Please try again.",
+    "validation": {
+      "nameRequired": "Name is required",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Please enter a valid email address",
+      "messageRequired": "Message is required"
+    }
+  }
+}

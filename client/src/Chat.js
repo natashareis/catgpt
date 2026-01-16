@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import axios from 'axios';
 import morganaImage from './Morgana.jpg';
 
 // Chat component - handles communication with Morgana backend
 function Chat() {
+  const { t } = useTranslation();
   const [message, setMessage] = useState('');
   const [chatHistory, setChatHistory] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -31,7 +33,7 @@ function Chat() {
       console.error('Error sending message:', error);
       const errorMessage = { 
         role: 'bot', 
-        text: 'Sorry, something went wrong. Please check the console and make sure the server is running.' 
+        text: t('chat.error')
       };
       setChatHistory(prev => [...prev, errorMessage]);
     } finally {
@@ -46,9 +48,9 @@ function Chat() {
           <img src={morganaImage} className="morgana-image" alt="Morgana the cat" />
         </div>
         <div className="chat-title-section">
-          <h1>CatGPT</h1>
-          <p>Your affectionate and wise feline companion</p>
-          <p className="chat-disclaimer">Powered by Google Gemini v2.5-flash | CatGPT v1.0</p>
+          <h1>{t('chat.title')}</h1>
+          <p>{t('chat.subtitle')}</p>
+          <p className="chat-disclaimer">{t('chat.disclaimer')}</p>
         </div>
       </header>
       <div className="chat-window">
@@ -69,11 +71,11 @@ function Chat() {
             type="text"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            placeholder="Ask Morgana a question..."
+            placeholder={t('chat.placeholder')}
             disabled={isLoading}
           />
           <button type="submit" disabled={isLoading}>
-            {isLoading ? 'Sending...' : 'Send'}
+            {isLoading ? 'Sending...' : t('chat.send')}
           </button>
         </form>
       </div>
