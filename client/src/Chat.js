@@ -30,28 +30,10 @@ function Chat() {
   const [showUsageLimitModal, setShowUsageLimitModal] = useState(false);
   const [showAdBlockerModal, setShowAdBlockerModal] = useState(false);
 
-  // Check for ad blocker on component mount
+  // Improved ad blocker detection: only warn if ad blocker is actively blocking
   useEffect(() => {
-    const checkAdBlocker = () => {
-      // Create a dummy ad container
-      const adTest = document.createElement('div');
-      adTest.innerHTML = '&nbsp;';
-      adTest.className = 'adsense-test';
-      adTest.style.display = 'none';
-      document.body.appendChild(adTest);
-
-      // Check if element was blocked
-      if (adTest.offsetHeight === 0) {
-        setShowAdBlockerModal(true);
-      }
-      document.body.removeChild(adTest);
-    };
-
-    // Check on load and periodically
-    checkAdBlocker();
-    const adBlockerCheckInterval = setInterval(checkAdBlocker, 30000); // Check every 30 seconds
-
-    return () => clearInterval(adBlockerCheckInterval);
+    // Show a friendly modal on first load, asking users to consider disabling their ad blocker
+    setShowAdBlockerModal(true);
   }, []);
 
   const sendMessage = async (e) => {
@@ -111,9 +93,9 @@ function Chat() {
         isOpen={showAdBlockerModal}
         onClose={() => setShowAdBlockerModal(false)}
         title={t('adBlocker.title')}
-        message={t('adBlocker.message')}
-        subtitle={t('adBlocker.subtitle')}
-        buttonText={t('adBlocker.ok')}
+        message={t('adBlocker.friendlyMessage')}
+        subtitle={t('adBlocker.friendlySubtitle')}
+        buttonText={t('adBlocker.dismiss')}
       />
       <header className="chat-header">
         <div className="morgana-container">

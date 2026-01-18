@@ -18,10 +18,13 @@
     "ok": "Je Comprends"
   },
   "adBlocker": {
-    "title": "Aidez à Nourrir Notre Chaton 🐱",
-    "message": "Nous savons que c'est désagréable, mais nous avons besoin que vous désactiviez votre bloqueur de publicités. L'utilisation de Morgana nécessite que les annonces soient activées afin que nous puissions nourrir notre chaton et maintenir le service gratuit pour tous.",
-    "subtitle": "Bloqueur de publicités détecté",
-    "ok": "Compris"
+    "title": "Soutenez CatsGPT 🐾",
+    "message": "Nous avons remarqué que vous utilisez peut-être un bloqueur de publicités. Si vous aimez utiliser CatsGPT, veuillez envisager de le désactiver pour aider à maintenir le service gratuit et soutenir notre chaton! Merci pour votre soutien.",
+    "subtitle": "Aucune pression, juste une demande amicale!",
+    "ok": "Compris",
+    "friendlyMessage": "Nous avons remarqué que vous utilisez peut-être un bloqueur de publicités. Si vous aimez utiliser CatsGPT, veuillez envisager de le désactiver pour aider à maintenir le service gratuit et soutenir notre chaton! Merci pour votre soutien.",
+    "friendlySubtitle": "Aucune pression, juste une demande amicale!",
+    "dismiss": "Continuer vers CatsGPT"
   },
   "about": {
     "name": "Natasha dos Reis",
