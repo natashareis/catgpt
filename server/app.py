@@ -178,7 +178,7 @@ def chat():
             }), 429
         
         # Initialize model with response_validation to get token counts
-        model = genai.GenerativeModel('models/gemini-2.0-flash')
+        model = genai.GenerativeModel('models/gemini-3.0-flash')
         full_prompt = f"{CAT_PERSONA_PROMPT}\n\nUser: {user_message}\nMorgana:"
         
         # Generate content and get response
