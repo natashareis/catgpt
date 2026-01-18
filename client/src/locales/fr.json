@@ -1,12 +1,12 @@
 {
   "nav": {
-    "brand": "CatsGPT",
+    "brand": "ChatsGPT",
     "about": "À Propos du Développeur"
   },
   "chat": {
-    "title": "CatsGPT",
+    "title": "ChatsGPT",
     "subtitle": "Votre compagne féline affectueuse et sage",
-    "disclaimer": "Alimenté par Google Gemini 2.5-flash | CatsGPT v1.0",
+    "disclaimer": "Alimenté par Google Gemini 2.5-flash | ChatsGPT v1.0",
     "placeholder": "Tapez votre message...",
     "send": "Envoyer",
     "sending": "Envoi...",
@@ -17,15 +17,6 @@
     "message": "Ooh-Ooh il semble que Morgana ait trop joué et ait besoin de se reposer, pour garder l'utilisation gratuite pour tous, nous devons ralentir les invites pendant un moment.",
     "subtitle": "Limite quotidienne atteinte",
     "ok": "Je Comprends"
-  },
-  "adBlocker": {
-    "title": "Soutenez CatsGPT 🐾",
-    "message": "Nous avons remarqué que vous utilisez peut-être un bloqueur de publicités. Si vous aimez utiliser CatsGPT, veuillez envisager de le désactiver pour aider à maintenir le service gratuit et soutenir notre chaton! Merci pour votre soutien.",
-    "subtitle": "Aucune pression, juste une demande amicale!",
-    "ok": "Compris",
-    "friendlyMessage": "Nous avons remarqué que vous utilisez peut-être un bloqueur de publicités. Si vous aimez utiliser CatsGPT, veuillez envisager de le désactiver pour aider à maintenir le service gratuit et soutenir notre chaton! Merci pour votre soutien.",
-    "friendlySubtitle": "Aucune pression, juste une demande amicale!",
-    "dismiss": "Continuer vers CatsGPT"
   },
   "about": {
     "name": "Natasha dos Reis",
@@ -52,7 +43,7 @@
     "linkedinButton": "Connectez-vous sur LinkedIn"
   },
   "footer": {
-    "version": "CatsGPT v1.0",
+    "version": "ChatsGPT v1.0",
     "contact": "Nous Contacter"
   },
   "contactModal": {
