@@ -6,10 +6,22 @@
   "chat": {
     "title": "CatsGPT",
     "subtitle": "Your affectionate and wise feline companion",
-    "disclaimer": "Powered by Google Gemini v2.5-flash | CatsGPT v1.0",
+    "disclaimer": "Powered by Google Gemini 3.0-flash | CatsGPT v1.0",
     "placeholder": "Type your message...",
     "send": "Send",
     "error": "Sorry, something went wrong. Please check the console and make sure the server is running."
+  },
+  "usageLimit": {
+    "title": "Morgana Needs a Break!",
+    "message": "Ooh-Ooh looks like Morgana played too much and needs to rest, in order to keep usage free for all we need to cool down the prompts for a while.",
+    "subtitle": "Daily limit reached",
+    "ok": "I Understand"
+  },
+  "adBlocker": {
+    "title": "Help Feed Our Kitty 🐱",
+    "message": "We know it sucks, but we need you to disable your ad blocker. The use of Morgana requires ads to be enabled so we can feed our kitty and keep the service free for everyone.",
+    "subtitle": "Ad blocker detected",
+    "ok": "Got it"
   },
   "about": {
     "name": "Natasha dos Reis",

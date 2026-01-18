@@ -6,10 +6,22 @@
   "chat": {
     "title": "CatsGPT",
     "subtitle": "Votre compagne féline affectueuse et sage",
-    "disclaimer": "Alimenté par Google Gemini v2.5-flash | CatsGPT v1.0",
+    "disclaimer": "Alimenté par Google Gemini 3.0-flash | CatsGPT v1.0",
     "placeholder": "Tapez votre message...",
     "send": "Envoyer",
     "error": "Désolé, quelque chose s'est mal passé. Veuillez vérifier la console et assurez-vous que le serveur est en cours d'exécution."
+  },
+  "usageLimit": {
+    "title": "Morgana a Besoin d'une Pause!",
+    "message": "Ooh-Ooh il semble que Morgana ait trop joué et ait besoin de se reposer, pour garder l'utilisation gratuite pour tous, nous devons ralentir les invites pendant un moment.",
+    "subtitle": "Limite quotidienne atteinte",
+    "ok": "Je Comprends"
+  },
+  "adBlocker": {
+    "title": "Aidez à Nourrir Notre Chaton 🐱",
+    "message": "Nous savons que c'est désagréable, mais nous avons besoin que vous désactiviez votre bloqueur de publicités. L'utilisation de Morgana nécessite que les annonces soient activées afin que nous puissions nourrir notre chaton et maintenir le service gratuit pour tous.",
+    "subtitle": "Bloqueur de publicités détecté",
+    "ok": "Compris"
   },
   "about": {
     "name": "Natasha dos Reis",
