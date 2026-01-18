@@ -1,7 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import axios from 'axios';
 import morganaImage from './Morgana.jpg';
+
+// Popup Component
+function Modal({ isOpen, onClose, title, message, subtitle, buttonText }) {
+  if (!isOpen) return null;
+  
+  return (
+    <div className="modal-overlay">
+      <div className="modal-content">
+        <h2>{title}</h2>
+        {subtitle && <p className="modal-subtitle">{subtitle}</p>}
+        <p className="modal-message">{message}</p>
+        <button onClick={onClose} className="modal-button">
+          {buttonText}
+        </button>
+      </div>
+    </div>
+  );
+}
 
 // Chat component - handles communication with Morgana backend
 function Chat() {
@@ -9,6 +27,32 @@ function Chat() {
   const [message, setMessage] = useState('');
   const [chatHistory, setChatHistory] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [showUsageLimitModal, setShowUsageLimitModal] = useState(false);
+  const [showAdBlockerModal, setShowAdBlockerModal] = useState(false);
+
+  // Check for ad blocker on component mount
+  useEffect(() => {
+    const checkAdBlocker = () => {
+      // Create a dummy ad container
+      const adTest = document.createElement('div');
+      adTest.innerHTML = '&nbsp;';
+      adTest.className = 'adsense-test';
+      adTest.style.display = 'none';
+      document.body.appendChild(adTest);
+
+      // Check if element was blocked
+      if (adTest.offsetHeight === 0) {
+        setShowAdBlockerModal(true);
+      }
+      document.body.removeChild(adTest);
+    };
+
+    // Check on load and periodically
+    checkAdBlocker();
+    const adBlockerCheckInterval = setInterval(checkAdBlocker, 30000); // Check every 30 seconds
+
+    return () => clearInterval(adBlockerCheckInterval);
+  }, []);
 
   const sendMessage = async (e) => {
     e.preventDefault();
@@ -26,16 +70,28 @@ function Chat() {
         message: message,
       });
 
+      // Check if usage limit exceeded
+      if (response.status === 429 || response.data.error === 'usage_limit_exceeded') {
+        setShowUsageLimitModal(true);
+        return;
+      }
+
       const botMessage = { role: 'bot', text: response.data.reply };
       setChatHistory(prev => [...prev, botMessage]);
 
     } catch (error) {
       console.error('Error sending message:', error);
-      const errorMessage = { 
-        role: 'bot', 
-        text: t('chat.error')
-      };
-      setChatHistory(prev => [...prev, errorMessage]);
+      
+      // Check if it's a usage limit error (429 status)
+      if (error.response?.status === 429 || error.response?.data?.error === 'usage_limit_exceeded') {
+        setShowUsageLimitModal(true);
+      } else {
+        const errorMessage = { 
+          role: 'bot', 
+          text: t('chat.error')
+        };
+        setChatHistory(prev => [...prev, errorMessage]);
+      }
     } finally {
       setIsLoading(false);
     }
@@ -43,6 +99,22 @@ function Chat() {
 
   return (
     <div className="Chat">
+      <Modal
+        isOpen={showUsageLimitModal}
+        onClose={() => setShowUsageLimitModal(false)}
+        title={t('usageLimit.title')}
+        message={t('usageLimit.message')}
+        subtitle={t('usageLimit.subtitle')}
+        buttonText={t('usageLimit.ok')}
+      />
+      <Modal
+        isOpen={showAdBlockerModal}
+        onClose={() => setShowAdBlockerModal(false)}
+        title={t('adBlocker.title')}
+        message={t('adBlocker.message')}
+        subtitle={t('adBlocker.subtitle')}
+        buttonText={t('adBlocker.ok')}
+      />
       <header className="chat-header">
         <div className="morgana-container">
           <img src={morganaImage} className="morgana-image" alt="Morgana the cat" />

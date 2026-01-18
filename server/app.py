@@ -1,9 +1,12 @@
 import os
+import json
 import google.generativeai as genai
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, session
 from flask_cors import CORS
 from flask_mail import Mail, Message
 from dotenv import load_dotenv
+from datetime import datetime, timedelta
+from functools import wraps
 
 # Load environment variables from .env file
 load_dotenv()
@@ -11,7 +14,15 @@ load_dotenv()
 # Initialize Flask app
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
+app.secret_key = os.getenv('SECRET_KEY', 'catgpt-secret-key-change-in-production')
 CORS(app)  # Enable CORS for all routes
+
+# --- Usage Tracking Configuration ---
+# Pricing for Gemini 2.0-flash: $0.075 per 1M input tokens, $0.30 per 1M output tokens
+USAGE_TRACKER_FILE = os.getenv('USAGE_TRACKER_FILE', '/tmp/catgpt_usage.json')
+MAX_MONTHLY_COST_USD = 1.0  # $1 USD per month limit
+INPUT_TOKEN_PRICE = 0.075 / 1_000_000  # Price per input token
+OUTPUT_TOKEN_PRICE = 0.30 / 1_000_000  # Price per output token
 
 # --- Email Configuration ---
 app.config['MAIL_SERVER'] = os.getenv('MAIL_SERVER', 'smtp.gmail.com')
@@ -28,11 +39,86 @@ import socket
 original_getfqdn = socket.getfqdn
 socket.getfqdn = lambda name='': 'localhost'
 
-# --- API Key Configuration ---
 # Configure Google Gemini
 google_api_key = os.getenv("GOOGLE_API_KEY")
 if google_api_key:
     genai.configure(api_key=google_api_key)
+
+# --- Usage Tracking Functions ---
+def get_usage_data():
+    """Load usage data from file"""
+    try:
+        if os.path.exists(USAGE_TRACKER_FILE):
+            with open(USAGE_TRACKER_FILE, 'r') as f:
+                return json.load(f)
+    except Exception as e:
+        print(f"Error reading usage file: {e}")
+    return {
+        "month": datetime.now().strftime("%Y-%m"),
+        "total_cost": 0.0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "requests": 0
+    }
+
+def save_usage_data(data):
+    """Save usage data to file"""
+    try:
+        os.makedirs(os.path.dirname(USAGE_TRACKER_FILE), exist_ok=True)
+        with open(USAGE_TRACKER_FILE, 'w') as f:
+            json.dump(data, f, indent=2)
+    except Exception as e:
+        print(f"Error writing usage file: {e}")
+
+def check_monthly_usage():
+    """Check if usage data is from current month"""
+    usage_data = get_usage_data()
+    current_month = datetime.now().strftime("%Y-%m")
+    
+    if usage_data.get("month") != current_month:
+        # Reset for new month
+        return {
+            "month": current_month,
+            "total_cost": 0.0,
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "requests": 0
+        }
+    return usage_data
+
+def calculate_token_cost(input_tokens, output_tokens):
+    """Calculate cost based on token usage"""
+    input_cost = input_tokens * INPUT_TOKEN_PRICE
+    output_cost = output_tokens * OUTPUT_TOKEN_PRICE
+    return input_cost + output_cost
+
+def update_usage(input_tokens, output_tokens):
+    """Update usage tracking and return if limit exceeded"""
+    usage_data = check_monthly_usage()
+    
+    # Calculate new cost
+    new_cost = calculate_token_cost(input_tokens, output_tokens)
+    total_cost = usage_data.get("total_cost", 0) + new_cost
+    
+    # Update tracking
+    usage_data["total_cost"] = total_cost
+    usage_data["input_tokens"] = usage_data.get("input_tokens", 0) + input_tokens
+    usage_data["output_tokens"] = usage_data.get("output_tokens", 0) + output_tokens
+    usage_data["requests"] = usage_data.get("requests", 0) + 1
+    usage_data["month"] = datetime.now().strftime("%Y-%m")
+    
+    save_usage_data(usage_data)
+    
+    limit_exceeded = total_cost > MAX_MONTHLY_COST_USD
+    
+    return {
+        "limit_exceeded": limit_exceeded,
+        "total_cost": round(total_cost, 4),
+        "remaining_budget": round(MAX_MONTHLY_COST_USD - total_cost, 4),
+        "input_tokens": usage_data["input_tokens"],
+        "output_tokens": usage_data["output_tokens"],
+        "requests": usage_data["requests"]
+    }
 
 # --- Health Check Route ---
 @app.route('/', methods=['GET'])
@@ -78,10 +164,45 @@ def chat():
         return jsonify({"error": "Google API key not configured"}), 500
 
     try:
-        model = genai.GenerativeModel('models/gemini-2.5-flash')
+        # Check current month's usage
+        usage_data = check_monthly_usage()
+        current_cost = usage_data.get("total_cost", 0)
+        
+        # If limit already exceeded, return usage limit error
+        if current_cost >= MAX_MONTHLY_COST_USD:
+            return jsonify({
+                "error": "usage_limit_exceeded",
+                "message": "Monthly usage limit reached",
+                "total_cost": round(current_cost, 4),
+                "limit": MAX_MONTHLY_COST_USD
+            }), 429
+        
+        # Initialize model with response_validation to get token counts
+        model = genai.GenerativeModel('models/gemini-2.0-flash')
         full_prompt = f"{CAT_PERSONA_PROMPT}\n\nUser: {user_message}\nMorgana:"
+        
+        # Generate content and get response
         response = model.generate_content(full_prompt)
-        return jsonify({"reply": response.text})
+        
+        # Count tokens using the model's method
+        input_tokens = len(full_prompt.split())  # Approximate token count
+        output_tokens = len(response.text.split())  # Approximate token count
+        
+        # Get more accurate token count if available
+        try:
+            token_count_response = model.count_tokens(full_prompt)
+            if hasattr(token_count_response, 'total_tokens'):
+                input_tokens = token_count_response.total_tokens
+        except:
+            pass  # Use approximation if exact count unavailable
+        
+        # Update usage tracking
+        usage_info = update_usage(input_tokens, output_tokens)
+        
+        return jsonify({
+            "reply": response.text,
+            "usage": usage_info
+        })
 
     except Exception as e:
         # Generic error handler
