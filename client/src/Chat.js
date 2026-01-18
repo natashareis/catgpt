@@ -129,7 +129,7 @@ function Chat() {
             disabled={isLoading}
           />
           <button type="submit" disabled={isLoading}>
-            {isLoading ? 'Sending...' : t('chat.send')}
+            {isLoading ? t('chat.sending') : t('chat.send')}
           </button>
         </form>
       </div>

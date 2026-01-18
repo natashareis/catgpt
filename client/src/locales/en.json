@@ -6,9 +6,10 @@
   "chat": {
     "title": "CatsGPT",
     "subtitle": "Your affectionate and wise feline companion",
-    "disclaimer": "Powered by Google Gemini 3.0-flash | CatsGPT v1.0",
+    "disclaimer": "Powered by Google Gemini 2.5-flash | CatsGPT v1.0",
     "placeholder": "Type your message...",
     "send": "Send",
+    "sending": "Sending...",
     "error": "Sorry, something went wrong. Please check the console and make sure the server is running."
   },
   "usageLimit": {
@@ -20,10 +21,10 @@
   "adBlocker": {
     "title": "Support CatsGPT 🐾",
     "message": "We noticed you might be using an ad blocker. If you enjoy using CatsGPT, please consider disabling your ad blocker to help keep the service free and support our kitty! Thank you for your support.",
-    "subtitle": "No pressure—just a friendly request!",
+    "subtitle": "No pressure, just a friendly request!",
     "ok": "Got it",
     "friendlyMessage": "We noticed you might be using an ad blocker. If you enjoy using CatsGPT, please consider disabling it to help keep the service free and support our kitty! Thank you for your support.",
-    "friendlySubtitle": "No pressure—just a friendly request!",
+    "friendlySubtitle": "No pressure, just a friendly request!",
     "dismiss": "Continue to CatsGPT"
   },
   "about": {
@@ -47,7 +48,8 @@
       "Cloud & CI/CD",
       "AI Integrations",
       "LLM Applications"
-    ]
+    ],
+    "linkedinButton": "Connect on LinkedIn"
   },
   "footer": {
     "version": "CatsGPT v1.0",

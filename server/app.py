@@ -18,7 +18,7 @@ app.secret_key = os.getenv('SECRET_KEY', 'catgpt-secret-key-change-in-production
 CORS(app)  # Enable CORS for all routes
 
 # --- Usage Tracking Configuration ---
-# Pricing for Gemini 2.0-flash: $0.075 per 1M input tokens, $0.30 per 1M output tokens
+# Pricing for Gemini 2.5-flash: $0.075 per 1M input tokens, $0.30 per 1M output tokens
 USAGE_TRACKER_FILE = os.getenv('USAGE_TRACKER_FILE', '/tmp/catgpt_usage.json')
 MAX_MONTHLY_COST_USD = 1.0  # $1 USD per month limit
 INPUT_TOKEN_PRICE = 0.075 / 1_000_000  # Price per input token
@@ -178,7 +178,7 @@ def chat():
             }), 429
         
         # Initialize model with response_validation to get token counts
-        model = genai.GenerativeModel('models/gemini-3.0-flash')
+        model = genai.GenerativeModel('gemini-2.5-flash')
         full_prompt = f"{CAT_PERSONA_PROMPT}\n\nUser: {user_message}\nMorgana:"
         
         # Generate content and get response

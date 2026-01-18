@@ -65,7 +65,7 @@ function About() {
 
         <section className="about-section about-cta">
           <a href="https://www.linkedin.com/in/natasha-dos-reis-98987431" target="_blank" rel="noopener noreferrer" className="linkedin-button">
-            Connect on LinkedIn
+            {t('about.linkedinButton')}
           </a>
         </section>
       </div>
