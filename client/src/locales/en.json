@@ -18,10 +18,13 @@
     "ok": "I Understand"
   },
   "adBlocker": {
-    "title": "Help Feed Our Kitty 🐱",
-    "message": "We know it sucks, but we need you to disable your ad blocker. The use of Morgana requires ads to be enabled so we can feed our kitty and keep the service free for everyone.",
-    "subtitle": "Ad blocker detected",
-    "ok": "Got it"
+    "title": "Support CatsGPT 🐾",
+    "message": "We noticed you might be using an ad blocker. If you enjoy using CatsGPT, please consider disabling your ad blocker to help keep the service free and support our kitty! Thank you for your support.",
+    "subtitle": "No pressure—just a friendly request!",
+    "ok": "Got it",
+    "friendlyMessage": "We noticed you might be using an ad blocker. If you enjoy using CatsGPT, please consider disabling it to help keep the service free and support our kitty! Thank you for your support.",
+    "friendlySubtitle": "No pressure—just a friendly request!",
+    "dismiss": "Continue to CatsGPT"
   },
   "about": {
     "name": "Natasha dos Reis",
