@@ -3,9 +3,8 @@ import { useTranslation } from 'react-i18next';
 import './About.css';
 
 function About() {
-  const { t } = useTranslation();
+  const { t, ready } = useTranslation();
   
-  // Fallback tech stack in case translation doesn't load properly
   const fallbackTechStack = [
     "Testing Frameworks",
     "Automation Scripts",
@@ -21,7 +20,7 @@ function About() {
     "LLM Applications"
   ];
   
-  const techStackData = t('about.techStack', { returnObjects: true });
+  const techStackData = ready ? t('about.techStack', { returnObjects: true }) : fallbackTechStack;
   const techStack = (Array.isArray(techStackData) && techStackData.length > 0) 
     ? techStackData 
     : fallbackTechStack;

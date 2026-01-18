@@ -1,40 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import i18n from './i18n';
 import axios from 'axios';
 import morganaImage from './Morgana.jpg';
+import Modal from './components/Modal';
 
-// Popup Component
-function Modal({ isOpen, onClose, title, message, subtitle, buttonText }) {
-  if (!isOpen) return null;
-  
-  return (
-    <div className="modal-overlay">
-      <div className="modal-content">
-        <h2>{title}</h2>
-        {subtitle && <p className="modal-subtitle">{subtitle}</p>}
-        <p className="modal-message">{message}</p>
-        <button onClick={onClose} className="modal-button">
-          {buttonText}
-        </button>
-      </div>
-    </div>
-  );
-}
-
-// Chat component - handles communication with Morgana backend
 function Chat() {
   const { t } = useTranslation();
   const [message, setMessage] = useState('');
   const [chatHistory, setChatHistory] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [showUsageLimitModal, setShowUsageLimitModal] = useState(false);
-  const [showAdBlockerModal, setShowAdBlockerModal] = useState(false);
-
-  // Improved ad blocker detection: only warn if ad blocker is actively blocking
-  useEffect(() => {
-    // Show a friendly modal on first load, asking users to consider disabling their ad blocker
-    setShowAdBlockerModal(true);
-  }, []);
 
   const sendMessage = async (e) => {
     e.preventDefault();
@@ -46,10 +22,10 @@ function Chat() {
     setMessage('');
 
     try {
-      // API call to the Flask backend
       const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000';
       const response = await axios.post(`${apiUrl}/chat`, {
         message: message,
+        language: i18n.language,
       });
 
       // Check if usage limit exceeded
@@ -88,14 +64,6 @@ function Chat() {
         message={t('usageLimit.message')}
         subtitle={t('usageLimit.subtitle')}
         buttonText={t('usageLimit.ok')}
-      />
-      <Modal
-        isOpen={showAdBlockerModal}
-        onClose={() => setShowAdBlockerModal(false)}
-        title={t('adBlocker.title')}
-        message={t('adBlocker.friendlyMessage')}
-        subtitle={t('adBlocker.friendlySubtitle')}
-        buttonText={t('adBlocker.dismiss')}
       />
       <header className="chat-header">
         <div className="morgana-container">

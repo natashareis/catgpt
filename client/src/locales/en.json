@@ -18,15 +18,6 @@
     "subtitle": "Daily limit reached",
     "ok": "I Understand"
   },
-  "adBlocker": {
-    "title": "Support CatsGPT 🐾",
-    "message": "We noticed you might be using an ad blocker. If you enjoy using CatsGPT, please consider disabling your ad blocker to help keep the service free and support our kitty! Thank you for your support.",
-    "subtitle": "No pressure, just a friendly request!",
-    "ok": "Got it",
-    "friendlyMessage": "We noticed you might be using an ad blocker. If you enjoy using CatsGPT, please consider disabling it to help keep the service free and support our kitty! Thank you for your support.",
-    "friendlySubtitle": "No pressure, just a friendly request!",
-    "dismiss": "Continue to CatsGPT"
-  },
   "about": {
     "name": "Natasha dos Reis",
     "tagline": "Highly specialized SDET, leveraging the power of LLMs to grow and empower fun and useful product building.",
