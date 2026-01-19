@@ -69,3 +69,4 @@ yarn-error.log*
 
 # Deployment documentation (contains sensitive info)
 DEPLOYMENT.md
+CONTACT_FORM_SETUP.md
