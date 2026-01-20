@@ -6,10 +6,11 @@
   "chat": {
     "title": "CatsGPT",
     "subtitle": "Your affectionate and wise feline companion",
-    "disclaimer": "Powered by Google Gemini 2.5-flash | CatsGPT v1.0",
+    "disclaimer": "Powered by Google Gemini 2.5-flash | CatsGPT v1.1",
     "placeholder": "Type your message...",
     "send": "Send",
     "sending": "Sending...",
+    "purring": "purring...",
     "error": "Sorry, something went wrong. Please check the console and make sure the server is running."
   },
   "usageLimit": {
@@ -43,7 +44,7 @@
     "linkedinButton": "Connect on LinkedIn"
   },
   "footer": {
-    "version": "CatsGPT v1.0",
+    "version": "CatsGPT v1.1",
     "contact": "Contact Us"
   },
   "contactModal": {
