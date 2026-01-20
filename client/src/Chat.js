@@ -84,7 +84,7 @@ function Chat() {
           ))}
           {isLoading && (
             <div className="message bot">
-              <p><i>purring...</i></p>
+              <p><i>{t('chat.purring')}</i></p>
             </div>
           )}
         </div>

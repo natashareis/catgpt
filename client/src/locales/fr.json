@@ -6,10 +6,11 @@
   "chat": {
     "title": "ChatsGPT",
     "subtitle": "Votre compagne féline affectueuse et sage",
-    "disclaimer": "Alimenté par Google Gemini 2.5-flash | ChatsGPT v1.0",
+    "disclaimer": "Alimenté par Google Gemini 2.5-flash | ChatsGPT v1.1",
     "placeholder": "Tapez votre message...",
     "send": "Envoyer",
     "sending": "Envoi...",
+    "purring": "ronronne...",
     "error": "Désolé, quelque chose s'est mal passé. Veuillez vérifier la console et assurez-vous que le serveur est en cours d'exécution."
   },
   "usageLimit": {
@@ -43,7 +44,7 @@
     "linkedinButton": "Connectez-vous sur LinkedIn"
   },
   "footer": {
-    "version": "ChatsGPT v1.0",
+    "version": "ChatsGPT v1.1",
     "contact": "Nous Contacter"
   },
   "contactModal": {
