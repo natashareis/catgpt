@@ -4,12 +4,16 @@ Main entry point for the Flask application.
 """
 
 import os
+import sys
 import socket
 import google.generativeai as genai
 from flask import Flask
 from flask_cors import CORS
 from flask_mail import Mail
 from dotenv import load_dotenv
+
+# Add the server directory to Python path for module imports
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from routes import health_bp, chat_bp, init_contact_routes
 
