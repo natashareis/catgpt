@@ -7,7 +7,7 @@ import os
 import google.generativeai as genai
 from flask import Blueprint, request, jsonify
 
-from models import CAT_PERSONA_PROMPT_EN, CAT_PERSONA_PROMPT_FR
+from models import CAT_PERSONA_PROMPT_EN, CAT_PERSONA_PROMPT_FR, CAT_PERSONA_PROMPT_PT
 from services import UsageTracker
 
 
@@ -34,7 +34,7 @@ def chat():
     
     data = request.get_json() 
     user_message = data.get('message')
-    language = data.get('language', 'en')  # Default to English
+    language = data.get('language', 'en')
 
     if not user_message:
         return jsonify({"error": "No message provided"}), 400
@@ -43,7 +43,6 @@ def chat():
         return jsonify({"error": "Google API key not configured"}), 500
 
     try:
-        # Check if monthly usage limit has been reached
         limit_exceeded, current_cost = usage_tracker.is_limit_exceeded()
         
         if limit_exceeded:
@@ -54,29 +53,29 @@ def chat():
                 "limit": MAX_MONTHLY_COST_USD
             }), 429
         
-        # Initialize Gemini model
         model = genai.GenerativeModel('gemini-2.5-flash')
         
-        # Select persona based on language
-        persona_prompt = CAT_PERSONA_PROMPT_FR if language == 'fr' else CAT_PERSONA_PROMPT_EN
+        if language == 'fr':
+            persona_prompt = CAT_PERSONA_PROMPT_FR
+        elif language == 'pt':
+            persona_prompt = CAT_PERSONA_PROMPT_PT
+        else:
+            persona_prompt = CAT_PERSONA_PROMPT_EN
+            
         full_prompt = f"{persona_prompt}\n\nUser: {user_message}\nMorgana:"
         
-        # Generate content and get response
         response = model.generate_content(full_prompt)
         
-        # Count tokens (using approximation initially)
-        input_tokens = len(full_prompt.split())  # Approximate token count
-        output_tokens = len(response.text.split())  # Approximate token count
+        input_tokens = len(full_prompt.split())
+        output_tokens = len(response.text.split())
         
-        # Get more accurate token count if available
         try:
             token_count_response = model.count_tokens(full_prompt)
             if hasattr(token_count_response, 'total_tokens'):
                 input_tokens = token_count_response.total_tokens
         except Exception:
-            pass  # Use approximation if exact count unavailable
+            pass
         
-        # Update usage tracking
         usage_info = usage_tracker.update_usage(input_tokens, output_tokens)
         
         return jsonify({
@@ -85,6 +84,5 @@ def chat():
         })
 
     except Exception as e:
-        # Generic error handler
         print(f"An error occurred in chat endpoint: {e}")
         return jsonify({"error": "An error occurred while processing your request."}), 500

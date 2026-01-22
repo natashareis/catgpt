@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import './App.css';
 import Chat from './Chat';
+import Tests from './Tests';
 import About from './About';
 import LanguageToggle from './components/LanguageToggle';
 import ContactModal from './components/ContactModal';
@@ -42,26 +43,28 @@ function App() {
 
   return (
     <Router>
-      <div className="App">
-        <nav className="navbar">
+      <div className="App" data-testid="app-container">
+        <nav className="navbar" data-testid="navbar">
           <div className="nav-left">
-            <Link to="/" className="nav-link">{t('nav.brand')}</Link>
-            <Link to="/about" className="nav-link">{t('nav.about')}</Link>
+            <Link to="/" className="nav-link" data-testid="nav-link-brand">{t('nav.brand')}</Link>
+            <Link to="/tests" className="nav-link" data-testid="nav-link-tests">{t('nav.tests')}</Link>
+            <Link to="/about" className="nav-link" data-testid="nav-link-about">{t('nav.about')}</Link>
           </div>
           <div className="nav-right">
-            <button className="theme-toggle" onClick={toggleTheme} title="Toggle dark/light mode">
+            <button className="theme-toggle" onClick={toggleTheme} title="Toggle dark/light mode" data-testid="theme-toggle-button">
               {isDarkMode ? '☀️' : '🌙'}
             </button>
           </div>
         </nav>
         <Routes>
           <Route path="/" element={<Chat />} />
+          <Route path="/tests" element={<Tests />} />
           <Route path="/about" element={<About />} />
         </Routes>
-        <footer className="app-footer">
+        <footer className="app-footer" data-testid="app-footer">
           <div className="footer-content">
-            <p>{t('footer.version')}</p>
-            <button className="contact-button" onClick={() => setIsContactModalOpen(true)}>
+            <p data-testid="footer-version">{t('footer.version')}</p>
+            <button className="contact-button" onClick={() => setIsContactModalOpen(true)} data-testid="footer-contact-button">
               {t('footer.contact')}
             </button>
           </div>

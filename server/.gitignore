@@ -7,3 +7,12 @@ __pycache__/
 
 # Virtual environment
 venv/
+
+# Test coverage and artifacts
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Usage tracker data (contains sensitive usage metrics)
+catgpt_usage.json
+/tmp/catgpt_usage*.json

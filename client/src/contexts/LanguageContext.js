@@ -14,11 +14,19 @@ export function LanguageProvider({ children }) {
   }, [language]);
 
   const toggleLanguage = () => {
-    setLanguage(prev => (prev === 'en' ? 'fr' : 'en'));
+    setLanguage(prev => {
+      if (prev === 'en') return 'fr';
+      if (prev === 'fr') return 'pt';
+      return 'en';
+    });
+  };
+
+  const changeLanguage = (lang) => {
+    setLanguage(lang);
   };
 
   return (
-    <LanguageContext.Provider value={{ language, toggleLanguage }}>
+    <LanguageContext.Provider value={{ language, toggleLanguage, changeLanguage }}>
       {children}
     </LanguageContext.Provider>
   );

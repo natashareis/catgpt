@@ -1,16 +1,18 @@
 {
   "nav": {
     "brand": "ChatsGPT",
+    "tests": "Tests",
     "about": "À Propos du Développeur"
   },
   "chat": {
     "title": "ChatsGPT",
     "subtitle": "Votre compagne féline affectueuse et sage",
-    "disclaimer": "Alimenté par Google Gemini 2.5-flash | ChatsGPT v1.1",
+    "disclaimer": "Alimenté par Google Gemini 2.5-flash | ChatsGPT v1.2",
     "placeholder": "Tapez votre message...",
     "send": "Envoyer",
     "sending": "Envoi...",
     "purring": "ronronne...",
+    "makingBiscuits": "pétrit la pâte...",
     "error": "Désolé, quelque chose s'est mal passé. Veuillez vérifier la console et assurez-vous que le serveur est en cours d'exécution."
   },
   "usageLimit": {
@@ -20,31 +22,28 @@
     "ok": "Je Comprends"
   },
   "about": {
-    "name": "Natasha dos Reis",
+    "name": "Natasha Dos Reis",
     "tagline": "SDET hautement spécialisée, utilisant la puissance des LLM pour croître et créer des produits amusants et utiles.",
     "whoIAm": "Qui suis-je",
     "passion": "Je suis une bâtisseuse de cœur. J'aime créer des choses qui comptent, qu'il s'agisse de concevoir des cadres d'automatisation robustes, de concevoir des applications full-stack ou d'expérimenter avec les LLM et l'IA. Je suis motivée par le défi de résoudre des problèmes complexes avec des solutions élégantes.",
-    "bio": "Parlant couramment le portugais, l'anglais, l'espagnol et le français. Basée dans la région métropolitaine de Montréal et passionnée par la fusion de l'expertise technique avec la narration créative.",
-    "personal": "Quand je ne code pas, vous me trouverez avec une tasse de café chaud et un livre physique à la main. Je suis une écrivaine et cosplayeuse qui croit que l'imagination alimente l'innovation. J'ai un amour profond pour tout ce qui est doux et confortable, d'où l'existence de Morgana ! 🐱",
-    "whatIBuild": "Ce que je Construis",
+    "bio": "Locutrice native de Portugais, couramment en Anglais, Français avancé et Espagnol intermédiaire. Basée dans la région métropolitaine de Montréal et passionnée par la fusion de l'expertise technique avec la narration créative.",
+    "personal": "Quand je ne code pas, vous me trouverez avec une tasse de café chaud et un livre physique à la main, souvent plongée dans la fiction, à la fois en lisant et en écrivant. Je suis une écrivaine et cosplayeuse qui croit que l'imagination alimente l'innovation. J'ai un amour profond pour tout ce qui est doux et confortable, d'où l'existence de ChatsGPT ! 🐱",
+    "whatIBuild": "Ce que je construis",
     "techStack": [
       "Cadres de Test",
       "Scripts d'Automatisation",
-      "Automatisation Web",
-      "Tests API",
       "Applications Full-Stack",
       "Python",
       "React",
       "Angular",
       "SQL & NoSQL",
-      "Cloud & CI/CD",
       "Intégrations IA",
       "Applications LLM"
     ],
     "linkedinButton": "Connectez-vous sur LinkedIn"
   },
   "footer": {
-    "version": "ChatsGPT v1.1",
+    "version": "ChatsGPT v1.2",
     "contact": "Nous Contacter"
   },
   "contactModal": {
@@ -70,5 +69,28 @@
       "emailInvalid": "Veuillez entrer une adresse email valide",
       "messageRequired": "Le message est requis"
     }
+  },
+  "tests": {
+    "title": "Tableau de Bord des Tests",
+    "subtitle": "Métriques de test en temps réel et assurance qualité",
+    "loading": "Chargement des résultats des tests...",
+    "error": "Échec du chargement des résultats des tests",
+    "summary": "Résumé des Tests",
+    "totalTests": "Total des Tests",
+    "passed": "Réussis",
+    "failed": "Échoués",
+    "coverage": "Couverture du Code",
+    "backendCoverage": "Backend",
+    "linesCovered": "Lignes Couvertes",
+    "breakdown": "Détail des Tests",
+    "backendTests": "Tests Backend",
+    "frontendTests": "Tests UI Frontend",
+    "total": "Total",
+    "environment": "Environnement de Test",
+    "envName": "Environnement",
+    "lastRun": "Dernière Exécution",
+    "testingStack": "Stack de Test",
+    "backend": "Backend",
+    "frontend": "Frontend"
   }
 }
