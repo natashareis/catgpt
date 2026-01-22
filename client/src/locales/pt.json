@@ -1,0 +1,96 @@
+{
+  "nav": {
+    "brand": "GatinhosGPT",
+    "tests": "Testes",
+    "about": "Sobre a Desenvolvedora"
+  },
+  "chat": {
+    "title": "GatinhosGPT",
+    "subtitle": "Sua companheira felina afetuosa e sábia",
+    "disclaimer": "Desenvolvido com Google Gemini 2.5-flash | GatinhosGPT v1.2",
+    "placeholder": "Digite sua mensagem...",
+    "send": "Enviar",
+    "sending": "Enviando...",
+    "purring": "ronronando...",
+    "makingBiscuits": "amassando pãozinho...",
+    "error": "Desculpe, algo deu errado. Por favor, verifique o console e certifique-se de que o servidor está funcionando."
+  },
+  "usageLimit": {
+    "title": "Morgana Precisa de um Descanso!",
+    "message": "Ooh-Ooh parece que Morgana brincou demais e precisa descansar. Para manter o uso gratuito para todos, precisamos esfriar os prompts por um tempo.",
+    "subtitle": "Limite diário atingido",
+    "ok": "Entendi"
+  },
+  "about": {
+    "name": "Natasha Dos Reis",
+    "tagline": "SDET altamente especializada, aproveitando o poder dos LLMs para crescer e capacitar a construção de produtos divertidos e úteis.",
+    "whoIAm": "Quem Eu Sou",
+    "passion": "Alma criativa. Adoro construir coisas que importam, seja desenvolvendo frameworks de automação robustos, projetando aplicações full-stack ou experimentando com LLMs e IA. Sou motivada pelo desafio de resolver problemas complexos com soluções elegantes.",
+    "bio": "Falante nativa de Português, fluente em Inglês, Francês avançado e Espanhol intermediário. Baseada na Grande Montreal e apaixonada por mesclar expertise técnica com narrativa criativa.",
+    "personal": "Quando não estou programando, você me encontrará com uma xícara de café quentinho e um livro físico na mão, frequentemente mergulhada em ficção, tanto lendo quanto escrevendo. Sou escritora e cosplayer que acredita que a imaginação alimenta a inovação. Tenho um amor profundo por tudo que é fofinho e aconchegante, e é por isso que existe a GatinhosGPT! 🐱",
+    "whatIBuild": "O que eu desenvolvo",
+    "techStack": [
+      "Frameworks de Teste",
+      "Scripts de Automação",
+      "Apps Full-Stack",
+      "Python",
+      "React",
+      "Angular",
+      "SQL & NoSQL",
+      "Integrações de IA",
+      "Aplicações LLM"
+    ],
+    "linkedinButton": "Conecte-se no LinkedIn"
+  },
+  "footer": {
+    "version": "GatinhosGPT v1.2",
+    "contact": "Entre em Contato"
+  },
+  "contactModal": {
+    "title": "Entre em Contato",
+    "emailTo": "Enviando sua mensagem para:",
+    "description": "Tem uma dúvida ou feedback? Adoraríamos ouvir de você!",
+    "name": "Nome",
+    "namePlaceholder": "Seu nome",
+    "email": "Email",
+    "emailPlaceholder": "seu@email.com",
+    "message": "Mensagem",
+    "messagePlaceholder": "Sua mensagem aqui...",
+    "send": "Enviar Mensagem",
+    "cancel": "Fechar",
+    "sending": "Enviando...",
+    "successTitle": "Mensagem Enviada!",
+    "successMessage": "Obrigada por entrar em contato. Responderemos em breve!",
+    "errorTitle": "Ops!",
+    "errorMessage": "Algo deu errado. Por favor, tente novamente.",
+    "validation": {
+      "nameRequired": "Nome é obrigatório",
+      "emailRequired": "Email é obrigatório",
+      "emailInvalid": "Por favor, insira um endereço de email válido",
+      "messageRequired": "Mensagem é obrigatória"
+    }
+  },
+  "tests": {
+    "title": "Painel de Cobertura de Testes",
+    "subtitle": "Métricas de teste em tempo real e garantia de qualidade",
+    "loading": "Carregando resultados dos testes...",
+    "error": "Falha ao carregar resultados dos testes",
+    "summary": "Resumo dos Testes",
+    "totalTests": "Total de Testes",
+    "passed": "Aprovados",
+    "failed": "Reprovados",
+    "coverage": "Cobertura de Código",
+    "backendCoverage": "Backend",
+    "linesCovered": "Linhas Cobertas",
+    "breakdown": "Detalhamento dos Testes",
+    "backendTests": "Testes Backend",
+    "frontendTests": "Testes UI Frontend",
+    "total": "Total",
+    "environment": "Ambiente de Teste",
+    "envName": "Ambiente",
+    "lastRun": "Última Execução",
+    "testingStack": "Stack de Testes",
+    "backend": "Backend",
+    "frontend": "Frontend"
+  }
+}

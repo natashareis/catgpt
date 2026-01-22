@@ -1,0 +1,17 @@
+[MAIN]
+max-line-length=100
+disable=
+    C0114,  # missing-module-docstring (we have them in most files)
+    C0116,  # missing-function-docstring (some small functions don't need them)
+    R0903,  # too-few-public-methods (common for data classes)
+    W0718,  # broad-exception-caught (intentional in error handlers)
+
+[FORMAT]
+indent-string='    '
+
+[MESSAGES CONTROL]
+enable=
+    W,  # Warnings
+    E,  # Errors
+    C,  # Convention
+    R   # Refactor

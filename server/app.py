@@ -18,18 +18,14 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from routes import health_bp, chat_bp, init_contact_routes
 
 
-# Load environment variables from .env file
 load_dotenv()
 
-# Initialize Flask app
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
 app.secret_key = os.getenv('SECRET_KEY', 'catgpt-secret-key-change-in-production')
 
-# Enable CORS for all routes
 CORS(app)
 
-# Email Configuration
 app.config['MAIL_SERVER'] = os.getenv('MAIL_SERVER', 'smtp.gmail.com')
 app.config['MAIL_PORT'] = int(os.getenv('MAIL_PORT', 587))
 app.config['MAIL_USE_TLS'] = os.getenv('MAIL_USE_TLS', 'True').lower() == 'true'
@@ -48,7 +44,6 @@ google_api_key = os.getenv("GOOGLE_API_KEY")
 if google_api_key:
     genai.configure(api_key=google_api_key)
 
-# Register Blueprints
 app.register_blueprint(health_bp)
 app.register_blueprint(chat_bp)
 app.register_blueprint(init_contact_routes(mail))

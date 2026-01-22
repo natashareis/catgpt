@@ -1,16 +1,18 @@
 {
   "nav": {
     "brand": "CatsGPT",
+    "tests": "Tests",
     "about": "About The Developer"
   },
   "chat": {
     "title": "CatsGPT",
     "subtitle": "Your affectionate and wise feline companion",
-    "disclaimer": "Powered by Google Gemini 2.5-flash | CatsGPT v1.1",
+    "disclaimer": "Powered by Google Gemini 2.5-flash | CatsGPT v1.2",
     "placeholder": "Type your message...",
     "send": "Send",
     "sending": "Sending...",
     "purring": "purring...",
+    "makingBiscuits": "making biscuits...",
     "error": "Sorry, something went wrong. Please check the console and make sure the server is running."
   },
   "usageLimit": {
@@ -20,31 +22,28 @@
     "ok": "I Understand"
   },
   "about": {
-    "name": "Natasha dos Reis",
+    "name": "Natasha Dos Reis",
     "tagline": "Highly specialized SDET, leveraging the power of LLMs to grow and empower fun and useful product building.",
     "whoIAm": "Who I Am",
     "passion": "I'm a builder at heart. I love creating things that matter, whether it's crafting robust automation frameworks, designing full-stack applications, or experimenting with LLMs and AI. I'm driven by the challenge of solving complex problems with elegant solutions.",
-    "bio": "Fluent in Portuguese, English, Spanish, and French. Based in the Greater Montreal Area and passionate about merging technical expertise with creative storytelling.",
-    "personal": "When I'm not coding, you'll find me with a warm cup of coffee and a physical book in hand. I'm a writer and cosplayer who believes imagination fuels innovation. I have a deep love for all things fluffy and cozy, hence why Morgana exists! 🐱",
-    "whatIBuild": "What I Build",
+    "bio": "Native Portuguese speaker, fluent in English, advanced French, and intermediate Spanish. Based in the Greater Montreal Area and passionate about merging technical expertise with creative storytelling.",
+    "personal": "When I'm not coding, you'll find me with a warm cup of coffee and a physical book in hand, often diving into fiction, both reading and writing it. I'm a writer and cosplayer who believes imagination fuels innovation. I have a deep love for all things fluffy and cozy, hence why ChatsPGT exists! 🐱",
+    "whatIBuild": "What I build",
     "techStack": [
       "Testing Frameworks",
       "Automation Scripts",
-      "Web Automation",
-      "API Testing",
       "Full-Stack Apps",
       "Python",
       "React",
       "Angular",
       "SQL & NoSQL",
-      "Cloud & CI/CD",
       "AI Integrations",
       "LLM Applications"
     ],
     "linkedinButton": "Connect on LinkedIn"
   },
   "footer": {
-    "version": "CatsGPT v1.1",
+    "version": "CatsGPT v1.2",
     "contact": "Contact Us"
   },
   "contactModal": {
@@ -70,5 +69,28 @@
       "emailInvalid": "Please enter a valid email address",
       "messageRequired": "Message is required"
     }
+  },
+  "tests": {
+    "title": "Test Coverage Dashboard",
+    "subtitle": "Real-time testing metrics and quality assurance",
+    "loading": "Loading test results...",
+    "error": "Failed to load test results",
+    "summary": "Test Summary",
+    "totalTests": "Total Tests",
+    "passed": "Passed",
+    "failed": "Failed",
+    "coverage": "Code Coverage",
+    "backendCoverage": "Backend",
+    "linesCovered": "Lines Covered",
+    "breakdown": "Test Breakdown",
+    "backendTests": "Backend Tests",
+    "frontendTests": "Frontend UI Tests",
+    "total": "Total",
+    "environment": "Test Environment",
+    "envName": "Environment",
+    "lastRun": "Last Run",
+    "testingStack": "Testing Stack",
+    "backend": "Backend",
+    "frontend": "Frontend"
   }
 }

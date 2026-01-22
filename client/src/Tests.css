@@ -1,0 +1,254 @@
+.Tests {
+  min-height: 100vh;
+  padding: 2rem 1rem 100px 1rem;
+}
+
+.tests-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.tests-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.tests-subtitle {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+.tests-loading,
+.tests-error {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.2rem;
+}
+
+.tests-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tests-content section {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tests-content h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+}
+
+.tests-content h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.summary-card {
+  background: var(--bg-primary);
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  border: 2px solid var(--border-color);
+}
+
+.summary-card.success {
+  border-color: #4caf50;
+}
+
+.summary-card.failure {
+  border-color: #f44336;
+}
+
+.card-value {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.summary-card.success .card-value {
+  color: #4caf50;
+}
+
+.summary-card.failure .card-value {
+  color: #f44336;
+}
+
+.card-label {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.coverage-card {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.coverage-circle {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 8px solid;
+  position: relative;
+}
+
+.coverage-circle.coverage-good {
+  border-color: #4caf50;
+  background: rgba(76, 175, 80, 0.1);
+}
+
+.coverage-circle.coverage-warning {
+  border-color: #ff9800;
+  background: rgba(255, 152, 0, 0.1);
+}
+
+.coverage-circle.coverage-poor {
+  border-color: #f44336;
+  background: rgba(244, 67, 54, 0.1);
+}
+
+.coverage-value {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.coverage-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-top: 0.5rem;
+}
+
+.coverage-details {
+  flex: 1;
+}
+
+.coverage-stat {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.breakdown-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.breakdown-section {
+  background: var(--bg-primary);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.test-stats {
+  margin-top: 1rem;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.stat-row:last-child {
+  border-bottom: none;
+}
+
+.stat-row.success strong {
+  color: #4caf50;
+}
+
+.stat-row.failure strong {
+  color: #f44336;
+}
+
+.env-info {
+  background: var(--bg-primary);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.env-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.env-row:last-child {
+  border-bottom: none;
+}
+
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.stack-section {
+  background: var(--bg-primary);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.stack-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.stack-list li {
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  background: var(--card-bg);
+  border-radius: 4px;
+  border-left: 3px solid var(--primary-color);
+}
+
+.framework-label {
+  margin-top: 1rem;
+  padding: 0.8rem;
+  background: var(--primary-color);
+  color: white;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .tests-header h1 {
+    font-size: 2rem;
+  }
+
+  .coverage-card {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .breakdown-grid,
+  .stack-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -72,34 +72,34 @@ function ContactModal({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   return (
-    <div className="contact-modal-overlay" onClick={onClose}>
-      <div className="contact-modal" onClick={e => e.stopPropagation()}>
+    <div className="contact-modal-overlay" onClick={onClose} data-testid="contact-modal-overlay">
+      <div className="contact-modal" onClick={e => e.stopPropagation()} data-testid="contact-modal">
         <div className="contact-modal-header">
-          <h2>{t('contactModal.title')}</h2>
-          <button className="close-btn" onClick={onClose} aria-label="Close modal">×</button>
+          <h2 data-testid="contact-modal-title">{t('contactModal.title')}</h2>
+          <button className="close-btn" onClick={onClose} aria-label="Close modal" data-testid="contact-modal-close">×</button>
         </div>
 
         <div className="contact-modal-email">
-          <p>{t('contactModal.emailTo')} <strong>support@catsgpt.ca</strong></p>
+          <p data-testid="contact-modal-email-to">{t('contactModal.emailTo')} <strong>support@catsgpt.ca</strong></p>
         </div>
 
-        <p className="contact-modal-description">{t('contactModal.description')}</p>
+        <p className="contact-modal-description" data-testid="contact-modal-description">{t('contactModal.description')}</p>
 
         {status === 'success' && (
-          <div className="status-message success">
+          <div className="status-message success" data-testid="contact-status-success">
             <strong>{t('contactModal.successTitle')}</strong>
             <p>{t('contactModal.successMessage')}</p>
           </div>
         )}
 
         {status === 'error' && (
-          <div className="status-message error">
+          <div className="status-message error" data-testid="contact-status-error">
             <strong>{t('contactModal.errorTitle')}</strong>
             <p>{t('contactModal.errorMessage')}</p>
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="contact-form">
+        <form onSubmit={handleSubmit} className="contact-form" data-testid="contact-form">
           <div className="form-group">
             <label htmlFor="name">{t('contactModal.name')}</label>
             <input
@@ -110,8 +110,9 @@ function ContactModal({ isOpen, onClose }) {
               onChange={handleInputChange}
               placeholder={t('contactModal.namePlaceholder')}
               disabled={isLoading}
+              data-testid="contact-input-name"
             />
-            {errors.name && <span className="error-text">{errors.name}</span>}
+            {errors.name && <span className="error-text" data-testid="contact-error-name">{errors.name}</span>}
           </div>
 
           <div className="form-group">
@@ -124,8 +125,9 @@ function ContactModal({ isOpen, onClose }) {
               onChange={handleInputChange}
               placeholder={t('contactModal.emailPlaceholder')}
               disabled={isLoading}
+              data-testid="contact-input-email"
             />
-            {errors.email && <span className="error-text">{errors.email}</span>}
+            {errors.email && <span className="error-text" data-testid="contact-error-email">{errors.email}</span>}
           </div>
 
           <div className="form-group">
@@ -138,15 +140,16 @@ function ContactModal({ isOpen, onClose }) {
               placeholder={t('contactModal.messagePlaceholder')}
               rows="5"
               disabled={isLoading}
+              data-testid="contact-input-message"
             />
-            {errors.message && <span className="error-text">{errors.message}</span>}
+            {errors.message && <span className="error-text" data-testid="contact-error-message">{errors.message}</span>}
           </div>
 
           <div className="form-actions">
-            <button type="button" className="btn-cancel" onClick={onClose} disabled={isLoading}>
+            <button type="button" className="btn-cancel" onClick={onClose} disabled={isLoading} data-testid="contact-btn-cancel">
               {t('contactModal.cancel')}
             </button>
-            <button type="submit" className="btn-submit" disabled={isLoading}>
+            <button type="submit" className="btn-submit" disabled={isLoading} data-testid="contact-btn-submit">
               {isLoading ? t('contactModal.sending') : t('contactModal.send')}
             </button>
           </div>

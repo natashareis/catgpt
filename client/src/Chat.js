@@ -11,6 +11,7 @@ function Chat() {
   const [chatHistory, setChatHistory] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [showUsageLimitModal, setShowUsageLimitModal] = useState(false);
+  const [loadingText, setLoadingText] = useState('');
 
   const sendMessage = async (e) => {
     e.preventDefault();
@@ -19,6 +20,10 @@ function Chat() {
     const userMessage = { role: 'user', text: message };
     setChatHistory(prev => [...prev, userMessage]);
     setIsLoading(true);
+    
+    const randomLoadingText = Math.random() > 0.5 ? t('chat.purring') : t('chat.makingBiscuits');
+    setLoadingText(randomLoadingText);
+    
     setMessage('');
 
     try {
@@ -56,7 +61,7 @@ function Chat() {
   };
 
   return (
-    <div className="Chat">
+    <div className="Chat" data-testid="chat-container">
       <Modal
         isOpen={showUsageLimitModal}
         onClose={() => setShowUsageLimitModal(false)}
@@ -65,38 +70,39 @@ function Chat() {
         subtitle={t('usageLimit.subtitle')}
         buttonText={t('usageLimit.ok')}
       />
-      <header className="chat-header">
+      <header className="chat-header" data-testid="chat-header">
         <div className="morgana-container">
-          <img src={morganaImage} className="morgana-image" alt="Morgana the cat" />
+          <img src={morganaImage} className="morgana-image" alt="Morgana the cat" data-testid="morgana-image" />
         </div>
         <div className="chat-title-section">
-          <h1>{t('chat.title')}</h1>
-          <p>{t('chat.subtitle')}</p>
-          <p className="chat-disclaimer">{t('chat.disclaimer')}</p>
+          <h1 data-testid="chat-title">{t('chat.title')}</h1>
+          <p data-testid="chat-subtitle">{t('chat.subtitle')}</p>
+          <p className="chat-disclaimer" data-testid="chat-disclaimer">{t('chat.disclaimer')}</p>
         </div>
       </header>
-      <div className="chat-window">
-        <div className="chat-history">
+      <div className="chat-window" data-testid="chat-window">
+        <div className="chat-history" data-testid="chat-history">
           {chatHistory.map((msg, index) => (
-            <div key={index} className={`message ${msg.role}`}>
+            <div key={index} className={`message ${msg.role}`} data-testid={`message-${msg.role}-${index}`}>
               <p>{msg.text}</p>
             </div>
           ))}
           {isLoading && (
-            <div className="message bot">
-              <p><i>{t('chat.purring')}</i></p>
+            <div className="message bot" data-testid="loading-indicator">
+              <p><i>{loadingText}</i></p>
             </div>
           )}
         </div>
-        <form className="chat-input" onSubmit={sendMessage}>
+        <form className="chat-input" onSubmit={sendMessage} data-testid="chat-form">
           <input
             type="text"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             placeholder={t('chat.placeholder')}
             disabled={isLoading}
+            data-testid="chat-input"
           />
-          <button type="submit" disabled={isLoading}>
+          <button type="submit" disabled={isLoading} data-testid="chat-send-button">
             {isLoading ? t('chat.sending') : t('chat.send')}
           </button>
         </form>
