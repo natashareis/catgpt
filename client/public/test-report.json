@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-01-22T23:28:50.934080Z",
+  "timestamp": "2026-01-22T23:44:52.628246Z",
   "environment": "dev",
   "backend": {
     "framework": "pytest + pytest-flask",
@@ -9,21 +9,21 @@
       "lines_total": 124
     },
     "tests": {
-      "total": 0,
-      "passed": 0,
+      "total": 22,
+      "passed": 22,
       "failed": 0,
       "skipped": 0,
-      "duration": 0
+      "duration": 0.22
     }
   },
   "frontend": {
     "framework": "Playwright",
     "tests": {
-      "total": 0,
-      "passed": 0,
+      "total": 21,
+      "passed": 21,
       "failed": 0,
       "skipped": 0,
-      "duration": 0
+      "duration": 10.14
     }
   },
   "stack": {

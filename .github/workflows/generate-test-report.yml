@@ -34,7 +34,7 @@ jobs:
         env:
           GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY || 'test-key' }}
         run: |
-          pytest --cov=. --cov-report=json || true
+          pytest --cov=. --cov-report=json --json-report --json-report-file=test-results.json || true
       
       - name: Set up Node.js
         uses: actions/setup-node@v4
