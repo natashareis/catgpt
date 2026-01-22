@@ -61,7 +61,7 @@ test.describe('Chat Page', () => {
   test('should have disclaimer visible', async ({ page }) => {
     const disclaimer = page.getByTestId('chat-disclaimer');
     await expect(disclaimer).toBeVisible();
-    await expect(disclaimer).toContainText('v1.2');
+    await expect(disclaimer).toContainText('Google Gemini');
   });
 
   test('should have empty chat history initially', async ({ page }) => {

@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: catgpt-backend
+    env: python
+    region: oregon
+    buildCommand: "cd server && pip install -r requirements.txt"
+    startCommand: "cd server && gunicorn app:app"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: GOOGLE_API_KEY
+        sync: false
+      - key: MAIL_USERNAME
+        sync: false
+      - key: MAIL_PASSWORD
+        sync: false
+      - key: SECRET_KEY
+        sync: false
+    # Only deploy when backend files change
+    autoDeploy: true
+    rootDir: server
