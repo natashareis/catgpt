@@ -7,7 +7,7 @@ Generates a comprehensive test report JSON file for the dashboard.
 import json
 import os
 import sys
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 
@@ -18,7 +18,7 @@ def generate_test_report():
     frontend_results = load_frontend_results()
     
     report = {
-        "timestamp": datetime.utcnow().isoformat() + "Z",
+        "timestamp": datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
         "environment": "dev",
         "backend": {
             "framework": "pytest + pytest-flask",
@@ -67,18 +67,45 @@ def load_backend_coverage():
 
 
 def get_backend_test_stats():
-    """Get backend test statistics."""
-    return {
-        "total": 0,
-        "passed": 0,
-        "failed": 0,
-        "skipped": 0,
-        "duration": 0
-    }
+    """Get backend test statistics from pytest JSON report."""
+    results_file = Path(__file__).parent.parent / "server" / "test-results.json"
+    
+    if not results_file.exists():
+        return {
+            "total": 0,
+            "passed": 0,
+            "failed": 0,
+            "skipped": 0,
+            "duration": 0
+        }
+    
+    try:
+        with open(results_file, 'r') as f:
+            data = json.load(f)
+            summary = data.get('summary', {})
+            
+            return {
+                "total": summary.get('total', 0),
+                "passed": summary.get('passed', 0),
+                "failed": summary.get('failed', 0),
+                "skipped": summary.get('skipped', 0),
+                "duration": round(data.get('duration', 0), 2)
+            }
+    except Exception as e:
+        print(f"Warning: Could not load backend test stats: {e}")
+        return {
+            "total": 0,
+            "passed": 0,
+            "failed": 0,
+            "skipped": 0,
+            "duration": 0
+        }
 
 
 def load_frontend_results():
-    """Load frontend Playwright test results."""
+    """Load frontend Playwright test results from JSON output."""
+    # Playwright outputs JSON directly to stdout, not to a file by default
+    # We'll look for the results in test-results directory
     results_file = Path(__file__).parent.parent / "client" / "test-results" / "results.json"
     
     if not results_file.exists():
@@ -93,33 +120,20 @@ def load_frontend_results():
     try:
         with open(results_file, 'r') as f:
             data = json.load(f)
-            suites = data.get('suites', [])
+            stats = data.get('stats', {})
             
-            total = 0
-            passed = 0
-            failed = 0
-            skipped = 0
-            
-            for suite in suites:
-                for spec in suite.get('specs', []):
-                    for test in spec.get('tests', []):
-                        total += 1
-                        results = test.get('results', [])
-                        if results:
-                            status = results[0].get('status', 'unknown')
-                            if status == 'passed':
-                                passed += 1
-                            elif status == 'failed':
-                                failed += 1
-                            elif status == 'skipped':
-                                skipped += 1
+            total = stats.get('expected', 0) + stats.get('unexpected', 0) + stats.get('flaky', 0) + stats.get('skipped', 0)
+            passed = stats.get('expected', 0)
+            failed = stats.get('unexpected', 0)
+            skipped = stats.get('skipped', 0)
+            duration_ms = stats.get('duration', 0)
             
             return {
                 "total": total,
                 "passed": passed,
                 "failed": failed,
                 "skipped": skipped,
-                "duration": 0
+                "duration": round(duration_ms / 1000, 2)  # Convert ms to seconds
             }
     except Exception as e:
         print(f"Warning: Could not load frontend test results: {e}")
