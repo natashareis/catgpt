@@ -46,7 +46,7 @@ The project maintains comprehensive automated testing with deployment gates:
 
 **Backend Tests (pytest)**
 - 22 unit and integration tests
-- 90%+ code coverage requirement
+- 80%+ code coverage requirement (currently at 90%)
 - Tests for all routes, models, and services
 - Usage tracker excluded from coverage (API cost management)
 
