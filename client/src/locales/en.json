@@ -7,7 +7,7 @@
   "chat": {
     "title": "CatsGPT",
     "subtitle": "Your affectionate and wise feline companion",
-    "disclaimer": "Powered by Google Gemini 2.5-flash | CatsGPT v1.2",
+    "disclaimer": "Powered by Google Gemini 2.5-flash",
     "placeholder": "Type your message...",
     "send": "Send",
     "sending": "Sending...",

@@ -7,7 +7,7 @@
   "chat": {
     "title": "GatinhosGPT",
     "subtitle": "Sua companheira felina afetuosa e sábia",
-    "disclaimer": "Desenvolvido com Google Gemini 2.5-flash | GatinhosGPT v1.2",
+    "disclaimer": "Desenvolvido com Google Gemini 2.5-flash",
     "placeholder": "Digite sua mensagem...",
     "send": "Enviar",
     "sending": "Enviando...",

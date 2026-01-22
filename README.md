@@ -64,23 +64,6 @@ The project maintains comprehensive automated testing with deployment gates:
 
 ## Development
 
-### Environment Variables (Backend)
-
-Required in production (Render):
-```
-GOOGLE_API_KEY=your_gemini_api_key
-MAIL_USERNAME=your_gmail_address
-MAIL_PASSWORD=your_gmail_app_password
-```
-
-Optional (with defaults):
-```
-SECRET_KEY=your_flask_secret_key
-MAIL_SERVER=smtp.gmail.com
-MAIL_PORT=587
-MAIL_USE_TLS=True
-```
-
 ### Running Tests
 
 **Backend:**
