@@ -50,6 +50,8 @@ function Tests() {
   }
 
   const backendCoverage = testData.backend?.coverage?.percentage || 0;
+  const frontendCoverage = testData.frontend?.coverage?.percentage || 0;
+  const overallCoverage = testData.overall?.coverage?.percentage || 0;
   const backendTests = testData.backend?.tests || {};
   const frontendTests = testData.frontend?.tests || {};
   
@@ -91,15 +93,44 @@ function Tests() {
 
         <section className="test-coverage">
           <h2>{t('tests.coverage')}</h2>
-          <div className="coverage-card">
-            <div className={`coverage-circle ${getCoverageClass(backendCoverage)}`} data-testid="coverage-percentage">
-              <div className="coverage-value">{backendCoverage}%</div>
-              <div className="coverage-label">{t('tests.backendCoverage')}</div>
+          
+          <div className="coverage-card overall-coverage">
+            <div className={`coverage-circle ${getCoverageClass(overallCoverage)}`} data-testid="overall-coverage">
+              <div className="coverage-value">{overallCoverage}%</div>
+              <div className="coverage-label">{t('tests.overallCoverage')}</div>
             </div>
             <div className="coverage-details">
               <div className="coverage-stat">
-                <span>{t('tests.linesCovered')}:</span>
-                <strong>{testData.backend?.coverage?.lines_covered || 0} / {testData.backend?.coverage?.lines_total || 0}</strong>
+                <span className="stat-label">{t('tests.linesCovered')}:</span>
+                <span className="stat-value">{testData.overall?.coverage?.lines_covered || 0} / {testData.overall?.coverage?.lines_total || 0}</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="coverage-breakdown">
+            <div className="coverage-card">
+              <div className={`coverage-circle ${getCoverageClass(backendCoverage)}`} data-testid="backend-coverage">
+                <div className="coverage-value">{backendCoverage}%</div>
+                <div className="coverage-label">{t('tests.backendCoverage')}</div>
+              </div>
+              <div className="coverage-details">
+                <div className="coverage-stat">
+                  <span className="stat-label">{t('tests.linesCovered')}:</span>
+                  <span className="stat-value">{testData.backend?.coverage?.lines_covered || 0} / {testData.backend?.coverage?.lines_total || 0}</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="coverage-card">
+              <div className={`coverage-circle ${getCoverageClass(frontendCoverage)}`} data-testid="frontend-coverage">
+                <div className="coverage-value">{frontendCoverage}%</div>
+                <div className="coverage-label">{t('tests.frontendCoverage')}</div>
+              </div>
+              <div className="coverage-details">
+                <div className="coverage-stat">
+                  <span className="stat-label">{t('tests.linesCovered')}:</span>
+                  <span className="stat-value">{testData.frontend?.coverage?.lines_covered || 0} / {testData.frontend?.coverage?.lines_total || 0}</span>
+                </div>
               </div>
             </div>
           </div>

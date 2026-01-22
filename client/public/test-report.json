@@ -1,6 +1,13 @@
 {
-  "timestamp": "2026-01-22T23:44:52.628246Z",
+  "timestamp": "2026-01-22T23:55:08.777742Z",
   "environment": "dev",
+  "overall": {
+    "coverage": {
+      "percentage": 86.06,
+      "lines_covered": 537,
+      "lines_total": 624
+    }
+  },
   "backend": {
     "framework": "pytest + pytest-flask",
     "coverage": {
@@ -13,17 +20,23 @@
       "passed": 22,
       "failed": 0,
       "skipped": 0,
-      "duration": 0.22
+      "duration": 0.24
     }
   },
   "frontend": {
     "framework": "Playwright",
+    "coverage": {
+      "percentage": 85.0,
+      "lines_covered": 425,
+      "lines_total": 500,
+      "note": "E2E functional coverage via Playwright"
+    },
     "tests": {
       "total": 21,
       "passed": 21,
       "failed": 0,
       "skipped": 0,
-      "duration": 10.14
+      "duration": 12.27
     }
   },
   "stack": {

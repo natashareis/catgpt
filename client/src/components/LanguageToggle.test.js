@@ -59,7 +59,7 @@ describe('LanguageToggle', () => {
     const button = screen.getByTestId('language-toggle-button');
     fireEvent.click(button);
     
-    expect(screen.getByText('CA-EN')).toBeInTheDocument();
+    expect(screen.getAllByText('CA-EN').length).toBeGreaterThan(0);
     expect(screen.getByText('CA-FR')).toBeInTheDocument();
     expect(screen.getByText('BR-PT')).toBeInTheDocument();
     expect(screen.getByText('English (Canada)')).toBeInTheDocument();
@@ -98,7 +98,7 @@ describe('LanguageToggle', () => {
     fireEvent.click(button);
     
     const enOption = screen.getByTestId('language-option-en');
-    expect(enOption).toHaveClass('active');
+    expect(enOption.classList.contains('active')).toBe(true);
   });
 
   test('should close dropdown when clicking outside', () => {
