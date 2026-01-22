@@ -170,7 +170,7 @@ body {
    ============================================ */
 
 .chat-header {
-  padding: 30px 20px;
+  padding: 20px 20px;
   text-align: center;
   border-bottom: 1px solid var(--border-color);
   background-color: var(--bg-secondary);
@@ -179,17 +179,17 @@ body {
 .morgana-container {
   position: relative;
   width: fit-content;
-  margin: 0 auto 20px;
+  margin: 0 auto 15px;
 }
 
 .morgana-image {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
-  border: 4px solid var(--accent-purple);
+  border: 3px solid var(--accent-purple);
   object-fit: cover;
   animation: purr-glow 3s ease-in-out infinite;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .morgana-eyes {
@@ -197,21 +197,21 @@ body {
 }
 
 .chat-title-section h1 {
-  margin: 10px 0 5px 0;
-  font-size: 2.5rem;
+  margin: 8px 0 4px 0;
+  font-size: 2rem;
   color: var(--text-primary);
 }
 
 .chat-title-section p {
   color: var(--text-secondary);
-  font-size: 1rem;
+  font-size: 0.9rem;
   margin: 0;
 }
 
 .chat-disclaimer {
   color: var(--text-secondary);
-  font-size: 0.85rem;
-  margin-top: 12px;
+  font-size: 0.8rem;
+  margin-top: 10px;
   opacity: 0.9;
   font-weight: 500;
 }
@@ -222,12 +222,13 @@ body {
 
 .chat-window {
   max-width: 700px;
-  margin: 20px auto;
+  margin: 15px auto;
   border: 1px solid var(--border-color);
   border-radius: 12px;
   display: flex;
   flex-direction: column;
-  height: 70vh;
+  height: calc(100vh - 450px);
+  min-height: 370px;
   background-color: var(--bg-secondary);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }

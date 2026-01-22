@@ -6,7 +6,7 @@
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
   z-index: 999;
 }
@@ -14,24 +14,23 @@
 .contact-modal {
   background-color: var(--bg-primary);
   border: 1px solid var(--border-color);
-  border-bottom: none;
-  border-radius: 16px 16px 0 0;
+  border-radius: 16px;
   padding: 24px;
   width: 100%;
   max-width: 500px;
   max-height: 80vh;
   overflow-y: auto;
-  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.15);
-  animation: slideUp 0.3s ease-out;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.3s ease-out;
 }
 
-@keyframes slideUp {
+@keyframes fadeIn {
   from {
-    transform: translateY(100%);
+    transform: scale(0.9);
     opacity: 0;
   }
   to {
-    transform: translateY(0);
+    transform: scale(1);
     opacity: 1;
   }
 }
