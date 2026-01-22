@@ -89,9 +89,30 @@
 
 @media (max-width: 768px) {
   .language-toggle {
-    bottom: 15px;
-    right: 15px;
-    padding: 8px 12px;
+    top: 80px;
+    left: 15px;
+  }
+
+  .language-toggle-button {
+    padding: 10px 14px;
     font-size: 0.75rem;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  .language-dropdown {
+    position: fixed;
+    top: 130px;
+    left: 15px;
+    right: auto;
+    margin-top: 0;
+    max-width: calc(100vw - 30px);
+    z-index: 1001;
+  }
+
+  .language-option {
+    padding: 14px 16px;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
 }
