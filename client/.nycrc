@@ -1,0 +1,19 @@
+{
+  "all": true,
+  "include": [
+    "src/**/*.js",
+    "src/**/*.jsx"
+  ],
+  "exclude": [
+    "src/index.js",
+    "src/reportWebVitals.js",
+    "src/**/*.test.js",
+    "src/**/*.spec.js"
+  ],
+  "reporter": [
+    "json",
+    "text",
+    "html"
+  ],
+  "report-dir": "./coverage"
+}
