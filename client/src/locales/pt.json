@@ -6,8 +6,8 @@
   },
   "chat": {
     "title": "GatinhosGPT",
-    "subtitle": "Sua companheira felina afetuosa e sábia. Morgana está executando em uma instância de backend gratuita; permita até 1 minuto para ela acordar se esteve inativa. Obrigada pela sua paciência!",
-    "disclaimer": "Desenvolvido com Google Gemini 2.5-flash, observe que as respostas da Morgana são geradas com base em padrões nos dados e podem não ser sempre precisas ou apropriadas. Use seu julgamento ao interpretar seus conselhos, e lembre-se de que ela está aqui para fornecer companhia e diversão, não orientação profissional.",
+    "subtitle": "Sua companheira felina afetuosa e sábia.\nMorgana está executando em uma instância de backend gratuita; permita até 1 minuto para ela acordar se esteve inativa.\nObrigada pela sua paciência!",
+    "disclaimer": "Desenvolvido com Google Gemini 2.5-flash, observe que as respostas da Morgana são geradas com base em padrões nos dados e podem não ser sempre precisas ou apropriadas.\nUse seu julgamento ao interpretar seus conselhos, e lembre-se de que ela está aqui para fornecer companhia e diversão, não orientação profissional.",
     "placeholder": "Digite sua mensagem...",
     "send": "Enviar",
     "sending": "Enviando...",
