@@ -76,7 +76,25 @@ function Chat() {
         </div>
         <div className="chat-title-section">
           <h1 data-testid="chat-title">{t('chat.title')}</h1>
-          <p data-testid="chat-subtitle">{t('chat.subtitle')}</p>
+          {
+            (() => {
+              const raw = t('chat.subtitle');
+              const parts = raw.split(' - ');
+              const first = parts.shift();
+              const rest = parts.length ? parts.join(' - ') : '';
+              return (
+                <p className="chat-subtitle" data-testid="chat-subtitle">
+                  <strong>{first}</strong>
+                  {rest && (
+                    <>
+                      <br />
+                      <span>{rest}</span>
+                    </>
+                  )}
+                </p>
+              );
+            })()
+          }
           <p className="chat-disclaimer" data-testid="chat-disclaimer">{t('chat.disclaimer')}</p>
         </div>
       </header>

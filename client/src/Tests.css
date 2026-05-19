@@ -18,6 +18,14 @@
   font-size: 1.1rem;
 }
 
+/* Allow localized subtitle text to wrap and preserve newlines */
+.tests-subtitle {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
+}
+
 .tests-loading,
 .tests-error {
   text-align: center;
