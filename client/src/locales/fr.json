@@ -6,8 +6,8 @@
   },
   "chat": {
     "title": "ChatsGPT",
-    "subtitle": "Votre compagne féline affectueuse et sage",
-    "disclaimer": "Alimenté par Google Gemini 2.5-flash",
+    "subtitle": "Votre compagne féline affectueuse et sage. Morgana fonctionne sur une instance de backend gratuite ; laissez-lui jusqu'à 1 minute pour se réveiller si elle a été inactive. Merci de votre patience !",
+    "disclaimer": "Alimenté par Google Gemini 2.5-flash, veuillez noter que les réponses de Morgana sont générées à partir de motifs dans les données et peuvent ne pas toujours être exactes ou appropriées. Utilisez votre jugement en interprétant ses conseils, et rappelez-vous qu'elle est là pour offrir de la compagnie et du divertissement, pas des conseils professionnels.",
     "placeholder": "Tapez votre message...",
     "send": "Envoyer",
     "sending": "Envoi...",
