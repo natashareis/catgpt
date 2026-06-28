@@ -202,18 +202,20 @@ body {
   color: var(--text-primary);
 }
 
-.chat-title-section p {
+.chat-title-section p:not(.chat-disclaimer) {
   color: var(--text-secondary);
   font-size: 0.9rem;
   margin: 0;
+  white-space: pre-line;
 }
 
 .chat-disclaimer {
   color: var(--text-secondary);
   font-size: 0.8rem;
-  margin-top: 10px;
+  margin-top: 2.4em;
   opacity: 0.9;
   font-weight: 500;
+  white-space: pre-line;
 }
 
 /* ============================================

@@ -6,8 +6,8 @@
   },
   "chat": {
     "title": "CatsGPT",
-    "subtitle": "Your affectionate and wise feline companion.\nMorgana is running on a free backend instance, allow her up to 1 minute to wake up if she's been idle.\nThanks for your patience!",
-    "disclaimer": "Powered by Google Gemini 2.5-flash, please note that Morgana's responses are generated based on patterns in data and may not always be accurate or appropriate.\nUse your judgment when interpreting her advice, and remember that she's here to provide companionship and fun, not professional guidance.",
+    "subtitle": "Your affectionate and wise feline companion.\nMorgana is running on a free backend instance, allow her up to 1 minute to wake up if she's been idle. Thanks for your patience!",
+    "disclaimer": "Powered by Google Gemini 2.5-flash.\n\nPlease note that Morgana's responses are generated based on patterns in data and may not always be accurate or appropriate.\nUse your judgment when interpreting her advice, and remember that she's here to provide companionship and fun, not professional guidance.",
     "placeholder": "Type your message...",
     "send": "Send",
     "sending": "Sending...",

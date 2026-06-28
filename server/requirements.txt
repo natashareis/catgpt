@@ -10,3 +10,4 @@ pytest-flask
 pytest-cov
 pytest-mock
 pytest-json-report
+protect-my-project>=0.1.4
